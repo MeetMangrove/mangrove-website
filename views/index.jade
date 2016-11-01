@@ -1,12 +1,16 @@
 extends layout
 
 block content
-  each section in sections
-    h2=section.title
-    p=section.text
-    a(href=section.cta.link)=section.cta.text
+  each section,key in sections
+    section(style="background-image:url(images/#{key}.png)")
+      .content
+        .text
+          h2=section.title
+          p=section.text
+          a.button(href=section.cta.link)=section.cta.text
+      div(style="clear:both;")
   .newsletter
-    h3 Stay tuned to the tropics
     form
+      h3 Stay tuned to the tropics
       input(type="text" placeholder="your email address")
       input(type="submit" value="get our latest news")
