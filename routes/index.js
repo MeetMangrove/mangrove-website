@@ -50,11 +50,31 @@ router.get('/projects', function(req, res, next) {
 });
 
 router.get('/lifestyle', function(req, res, next) {
-  res.render('values', {
+  res.render('lifestyle', {
     title: 'Mangrove',
     catchphrase: 'Hubs, Retreats & Bootcamps.',
     cta: 'Start a new life. Join us now',
     description: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla',
+    sections: [
+      {
+        title: 'Remote work & hub',
+        text: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla',
+        detail: 'bla bla blab',
+        image: 'images/fish.jpg'
+      },
+      {
+        title: 'Work differently.',
+        text: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla',
+        detail: 'bla bla blab',
+        image: 'images/fish.jpg'
+      },
+      {
+        title: 'Work differently.',
+        text: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla',
+        detail: 'bla bla blab',
+        image: 'images/fish.jpg'
+      }
+    ]
   })
 });
 

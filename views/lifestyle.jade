@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .lifestyle
+    each section,key in sections
+      section
+        .content
+          .text
+            h2=section.title
+            p=section.text
+          .image
+            img(src="images/lifestyle_#{key}.png")
+            .detail=section.detail
+        div(style="clear:both;")
