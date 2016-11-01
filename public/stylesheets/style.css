@@ -1,8 +1,127 @@
 body {
-  padding: 50px;
-  font: 14px "Proxima Nova", Helvetica, Arial, sans-serif;
+  font: 16px "Proxima Nova", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Header
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.header {
+  background: #FF512F;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #FF512F, #DD2476);
+  background: linear-gradient(to left, #FF512F, #DD2476);
+  /* Chrome 10-25, Safari 5.1-6 */
+  position: relative;
+  height: 100vh;
+  top: 0;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+  line-height: 100vh;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Menu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  line-height: 150px;
+}
+
+.menu {
+}
+
+  .menu .logo {
+    float: left;
+    margin-left: 100px;
+  }
+
+    .menu .logo img {
+      vertical-align: middle;
+    }
+
+  .menu ul {
+    padding: 0; margin: 0;
+    list-style: none;
+    position: absolute;
+    right: 50px;
+  }
+
+  .menu li {
+    float: left;
+    margin-right: 50px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Head
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.head {
+  background-color: #2C3E50;
+  text-align: center;
+  color: #fff;
+  padding: 5em 0;
+}
+
+.description {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Footer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.footer {
+  padding: 5em 0;
+  text-align: center;
+  background-color: #2C3E50;
+}
+
+.footer-legend {
+  font-size: 24px;
+  color: #627284;
+}
+
+.footer-link {
+  font-size: 32px;
+}
+
+  .footer-link a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+.footer-logos {
+  display: none;
 }

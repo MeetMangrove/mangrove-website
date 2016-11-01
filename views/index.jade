@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= From Work to Life.
-  p Welcome to #{title}
+  each section in sections
+    h2=section.title
+    p=section.text
+    a(href=section.cta.link)=section.cta.text
+  .newsletter
+    h3 Stay tuned to the tropics
+    form
+      input(type="text" placeholder="your email address")
+      input(type="submit" value="get our latest news")

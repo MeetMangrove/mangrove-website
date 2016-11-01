@@ -2,10 +2,27 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    .menu
-      .logo
-        Mangrove
-      
+    .header
+      .menu
+        .logo
+          a(href='/'): img(src="images/logo.png")
+        ul
+          li: a(href='/values') Values
+          li: a(href='/projects') Projects
+          li: a(href='/lifestyle') Lifestyle
+          li: a(href='/community') Community
+      .catchphrase
+        h1=catchphrase
+    .head
+      .description=description
+      .legend=cta
+
     block content
+
+    .footer
+      .footer-legend Any question? Get in touch with us:
+      .footer-link: a(href="mailto:hello@meetmangrove.com") hello@meetmangrove.com
+      .footer-logos twitter / snap / facebook
