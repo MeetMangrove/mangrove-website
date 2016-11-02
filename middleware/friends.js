@@ -15,7 +15,7 @@ function getFriends() {
 			sheets.spreadsheets.values.get({
 				auth: auth,
 				spreadsheetId: '1ksK3vR4XF60SnegkSAjV3Q8SYHh-dgGUJDA4Y9RTBRE',
-				range: 'WebsiteV2!A2:C'
+				range: 'WebsiteV2!A2:D'
 			}, function(err, response) {
 				// Error handler
 				if (err) {
