@@ -6,7 +6,7 @@ router.use(wording);
 
 router.get('/:name?', function(req, res, next) {
 	var name = req.params.name
-	name = (name) ? name : 'index'
+	name = name ? name : 'index'
 	res.render(name, req.wording)
 });
 

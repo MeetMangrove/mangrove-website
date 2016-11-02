@@ -1,5 +1,6 @@
 body {
   font: 16px "Proxima Nova", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.02em;
 }
 
 a {
@@ -29,7 +30,7 @@ h1 {
   letter-spacing: 0.02em;
   color: #fff;
   margin: 0;
-  line-height: 100vh;
+  line-height: 80vh;
 }
 
 /*
@@ -91,12 +92,21 @@ Head
   background-color: #2C3E50;
   text-align: center;
   color: #fff;
-  padding: 5em 0;
+  padding: 3em 0;
 }
 
-.description {
-  max-width: 800px;
+.head .description {
+  max-width: 600px;
+  line-height: 1.2em;
   margin: auto;
+}
+
+.legend {
+  margin-top: 12px;
+}
+
+.head a {
+  color: #fff;
 }
 
 /*
@@ -140,7 +150,8 @@ h2 {
 }
 
 section .content p {
-  color: #5b5b5b
+  color: #5b5b5b;
+  line-height: 1.25em;
 }
 
 section .content a {
@@ -195,6 +206,43 @@ Sections - Lifestyle
 .detail {
   display: none;
 }
+
+.manifesto-container {
+  background-color: #f6f8fa;
+  width: 100%;
+  padding: 50px 0;
+}
+  .manifesto {
+    padding: 100px;
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    line-height: 1.2em;
+  }
+
+  .manifesto .title {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 32px;
+  }
+
+  .manifesto p {
+    margin: 64px 0;
+  }
+
+  .manifesto .signature {
+    text-align: right;
+  }
+
+  section.playbook {
+    background-size: auto;
+    background-position: right 100px center;
+    background-repeat: no-repeat;
+  }
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

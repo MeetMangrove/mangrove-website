@@ -1,4 +1,17 @@
 extends layout
 
 block content
-  p bonjour
+  .manifesto-container
+    .manifesto
+      .title Manifesto
+      p !{manifesto}
+      .signature Mangrove's cofounders, January 2016
+
+  section(style="display:none;")
+  section.playbook(style="background-image:url(images/mangroveplaybook.png);")
+    .content
+      .text
+        h2=section.title
+        p !{section.text}
+        a.button(href=section.cta_link)=section.cta
+    div(style="clear:both;")
