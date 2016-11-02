@@ -18,7 +18,7 @@ Header
   background: linear-gradient(to left, #FF512F, #DD2476);
   /* Chrome 10-25, Safari 5.1-6 */
   position: relative;
-  height: 100vh;
+  height: 80vh;
   top: 0;
 }
 
@@ -111,7 +111,7 @@ section {
   background-size: 100% auto;
   background-position: center center;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   padding: 0 100px;
   box-sizing: border-box;
   position: relative;
@@ -163,7 +163,10 @@ Sections - Lifestyle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-.lifestyle section:nth-child(even) {
+.lifestyle section {
+}
+
+.lifestyle section:nth-child(odd) {
   background-color: #f6f8fa;
 }
 
@@ -182,6 +185,11 @@ Sections - Lifestyle
 
 .lifestyle .image img {
   display: block;
+}
+
+.lifestyle .image.iphone img {
+  max-height: 80vh;
+  max-width: 400px;
 }
 
 .detail {
