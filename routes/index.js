@@ -12,16 +12,16 @@ router.get('/values', function(req, res, next) {
   res.render('values', req.wording)
 });
 
-router.get('/projects', function(req, res, next) {
-  res.render('values', req.wording)
-});
-
 router.get('/lifestyle', function(req, res, next) {
-  res.render('values', req.wording)
+  res.render('lifestyle', req.wording)
 });
 
 router.get('/community', function(req, res, next) {
-  res.render('values', req.wording)
+  res.render('community', req.wording)
+});
+
+router.get('/team', function(req, res, next) {
+  res.render('team', req.wording)
 });
 
 module.exports = router;
