@@ -1,15 +1,5 @@
-var key = require('./client_secret.json');
 var google = require('googleapis');
-var sheets = google.sheets('v4')
-
-//
-var auth = new google.auth.JWT(
-  key.client_email,
-  null,
-  key.private_key,
-  ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.googleapis.com/auth/drive'],
-  null
-);
+var auth = require('./auth.js')
 
 /*var drive = google.drive('v3');
 drive.files.list({
@@ -41,6 +31,9 @@ var pages = {
 	}
 }
 
+/**
+Get the wording for the page named 'name'
+*/
 function getWording(name) {
 	return new Promise(function (resolve, reject) {
 		// Make auth
@@ -58,6 +51,7 @@ function getWording(name) {
 				return
 			}
 
+			var sheets = google.sheets('v4')
 			sheets.spreadsheets.values.batchGet({
 				auth: auth,
 				spreadsheetId: '1eCOYdNHmHyPEktZbQP5D6vbQtCbGRs059NyoL26XzXI',
@@ -158,4 +152,4 @@ var wordingMiddleware = function (req, res, next) {
 		)
 };
 
-	module.exports = wordingMiddleware
+module.exports = wordingMiddleware
