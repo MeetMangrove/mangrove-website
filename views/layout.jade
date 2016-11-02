@@ -4,6 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="//use.fontawesome.com/6035d6a879.js")
   body
     .header
       .menu
@@ -26,4 +27,7 @@ html
     .footer
       .footer-legend Any question? Get in touch with us:
       .footer-link: a(href="mailto:hello@meetmangrove.com") hello@meetmangrove.com
-      .footer-logos twitter snap facebook
+      .footer-logos      
+        a(href="https://twitter.com/intent/follow?screen_name=meetmangrove"): i(class="fa fa-twitter")
+        a(href="https://www.snapchat.com/add/meetmangrove" target="_blank" class="snapchat"): img(src="images/snapchat.png")
+        a(href="https://www.facebook.com/meetmangrove" target="_blank"): i(class="fa fa-facebook-official")
