@@ -1,6 +1,6 @@
 var express = require('express');
 var wording = require('../middleware/wording.js')
-var friends = require('../middleware/friends.js')
+var people = require('../middleware/people.js')
 var router = express.Router();
 router.use(wording);
 
@@ -10,12 +10,13 @@ router.get('/:name?', function(req, res, next) {
 
 	if (name === 'team') {
 		// Append friends
-		friends.get().
+		people.get().
 			then(
-				function (people) {
+				function (persons) {
 					var result = req.wording
-					result.friends = people.friends
-					result.members = people.members
+					result.friends = persons.friends
+					result.members = persons.members
+					console.log(result)
 					res.render(name, result)
 				},
 				function (err) {

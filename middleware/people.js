@@ -1,7 +1,7 @@
 var google = require('googleapis');
 var auth = require('./auth.js')
 
-function getFriends() {
+function getPeople() {
 	return new Promise(function (resolve, reject) {
 		// Make auth
 		auth.authorize(function (err, tokens) {
@@ -54,5 +54,5 @@ function getFriends() {
 }
 
 module.exports = {
-	get: getFriends
+	get: getPeople
 }
