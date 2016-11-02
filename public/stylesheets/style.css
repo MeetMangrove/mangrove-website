@@ -108,11 +108,13 @@ Sections - Homepage
 section {
   display:flex;
   align-items:center;
-  background-size: contain;
+  background-size: 100% auto;
+  background-position: center center;
   width: 100%;
   height: 100vh;
   padding: 0 100px;
   box-sizing: border-box;
+  position: relative;
 }
 
 section .content {
@@ -157,6 +159,37 @@ section .content a:hover {
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sections - Lifestyle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.lifestyle section:nth-child(even) {
+  background-color: #f6f8fa;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+}
+
+.lifestyle section:nth-child(odd) .image {
+  right: 100px;
+}
+
+.lifestyle section:nth-child(even) .image {
+  left: 100px;
+}
+
+.lifestyle .image img {
+  display: block;
+}
+
+.detail {
+  display: none;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Newsletter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
@@ -191,6 +224,7 @@ Newsletter
     margin: auto;
     font-family: "Proxima Nova";
     box-sizing: border-box;
+    outline: 0;
   }
 
   .newsletter input[type="text"] {

@@ -16,9 +16,10 @@ html
           li: a(href='/community') Community
       .catchphrase
         h1=catchphrase
-    .head
-      .description=description
-      .legend=cta
+    if description
+      .head
+        .description=description
+        .legend=cta
 
     block content
 
