@@ -12,9 +12,10 @@ router.get('/:name?', function(req, res, next) {
 		// Append friends
 		friends.get().
 			then(
-				function (friends) {
+				function (people) {
 					var result = req.wording
-					result.friends = friends
+					result.friends = people.friends
+					result.members = people.members
 					res.render(name, result)
 				},
 				function (err) {
