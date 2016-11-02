@@ -3,9 +3,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-a {
-}
-
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Header
@@ -326,6 +323,23 @@ Footer
   }
 
 .footer-logos {
-  margin-top: 12px;
+  margin-top: 35px;
   color: #fff;
+}
+
+.footer-logos a {
+  color: #fff;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.footer-logos i {
+  font-size: 40px;
+}
+
+.footer-logos .snapchat img {
+  width: 35px;
+  position: relative;
+  top: 1px;
 }
