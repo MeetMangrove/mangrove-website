@@ -1,16 +1,23 @@
-.team
-  h2 Mangrove Co-founders
-  p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
-  ul
-    li
-      a(href="twitter.com/", target="_blank")
-        img(src="")
-        Prénom Nom
-.team
-  h2 Mangrove Friends
-  p.explanation They believe in our vision. We believe in what they do.
-  ul
-    li
-      a(href="twitter.com/", target="_blank")
-        img(src="")
-        Prénom Nom
+extends layout
+
+block content
+
+  .team.members
+    h2 Mangrove Co-founders
+    p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
+    ul
+      each mb,key in members
+        li
+          a(href="http://twitter.com/#{mb.twitter}", target="_blank")
+            .member-profile(style="background-image: url(#{mb.image})")
+            .member-name #{mb.first_name} #{mb.last_name}
+    div(style="clear:both;")
+  .team
+    h2 Mangrove Friends
+    p.explanation They believe in our vision. We believe in what they do.
+    ul
+      each fr,key in friends
+        li
+          a(href="http://twitter.com/#{fr.twitter}", target="_blank")
+            .member-profile(style="background-image: url(#{fr.image})")
+            .member-name #{fr.first_name} #{fr.last_name}

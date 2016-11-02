@@ -280,7 +280,7 @@ Newsletter
     outline: 0;
   }
 
-  .newsletter input[type="text"] {
+  .newsletter input[type="email"] {
     padding: 15px 20px;
     border-radius: 5px;
     background-color: #f6f8fa;
@@ -342,4 +342,60 @@ Footer
   width: 35px;
   position: relative;
   top: 1px;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Team
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.members {
+  margin-top: 120px;
+}
+
+.team {
+  text-align: center;
+  margin-bottom: 84px;
+}
+
+.team h2 {
+  margin-bottom: 12px;
+}
+
+.team p {
+  color: #5b5b5b;
+  margin-bottom: 32px;
+}
+
+.team ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+}
+
+.team li {
+  margin: 25px;
+  text-align: center;
+  display: inline-block;
+}
+
+.team .member-profile {
+  width: 160px;
+  height: 160px;
+  background-color: #EEE;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.team a {
+  color: #2a2a2a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.team .member-name {
+  margin-top: 18px;
 }
