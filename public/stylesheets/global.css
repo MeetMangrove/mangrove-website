@@ -1,0 +1,296 @@
+body {
+  font: 16px "Proxima Nova", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Header
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.header {
+  background: #FF512F;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #FF512F, #DD2476);
+  background: linear-gradient(to left, #FF512F, #DD2476);
+
+  text-align: center;
+  position: relative;
+  height: 90vh;
+  top: 0;
+}
+
+h1 {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+
+  position: absolute;
+  bottom: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+@-webkit-keyframes move-arrow {
+  50% {
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -0-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -0-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+
+.bottom-arrow {
+  display: none;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  margin-left: -36px;
+  -webkit-animation: move-arrow 1s infinite;
+  -moz-animation:    move-arrow 1s infinite
+  -o-animation:      move-arrow 1s infinite;
+  animation:         move-arrow 1s infinite;
+}
+
+  .bottom-arrow svg {
+    padding: 24px;
+    cursor: pointer;
+  }
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Menu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.menu {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  line-height: 42px;
+}
+
+  .menu ul {
+    padding: 0; margin: 0;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .menu .logo {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .menu li {
+  }
+
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Head
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.head {
+  background-color: #2C3E50;
+  text-align: center;
+  color: #fff;
+  padding: 3em 1em;
+  line-height: 1.4em;
+  font-size: 0.8em;
+}
+
+.head a {
+  color: #fff;
+}
+
+.legend {
+  margin-top: 12px;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Footer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.footer {
+  padding: 5em 0;
+  text-align: center;
+  background-color: #2C3E50;
+}
+
+.footer-legend {
+  margin-bottom: 4px;
+  color: #627284;
+}
+
+  .footer-link a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-logos {
+    margin-top: 35px;
+    color: #fff;
+  }
+
+  .footer-logos a {
+    color: #fff;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .footer-logos i {
+    font-size: 40px;
+  }
+
+  .footer-logos .snapchat img {
+    width: 35px;
+    position: relative;
+    top: 1px;
+  }
+
+@media only screen and (min-width: 45em) {
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Header
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  .header {
+    /* Chrome 10-25, Safari 5.1-6 */
+    text-align: left;
+    top: 0;
+    height: 100vh;
+  }
+
+  h1 {
+    font-size: 60px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin: 0;
+    line-height: 100vh;
+
+    position: inherit;
+    width: auto;
+    text-align: center;
+  }
+
+  .bottom-arrow {
+    display: block;
+  }
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Menu
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  .menu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    line-height: 150px;
+  }
+
+    .menu .logo {
+      float: left;
+      margin-left: 100px;
+      text-align: left;
+      margin-top: 0;
+    }
+
+      .menu .logo img {
+        vertical-align: middle;
+      }
+
+    .menu ul {
+      right: 50px;
+      text-align: left;;
+      width: auto;
+      margin-top: auto;
+    }
+
+    .menu li {
+      float: left;
+      margin-right: 50px;
+      text-decoration: none;
+    }
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Head
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  .head {
+    padding: 3em 0;
+    font-size: 1.08em;
+  }
+
+  .head .description {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Footer
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  .footer-legend {
+    font-size: 24px;
+  }
+
+  .footer-link {
+    font-size: 32px;
+  }
+
+  .footer-logos {
+    margin-top: 35px;
+    color: #fff;
+  }
+
+  .footer-logos a {
+    color: #fff;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .footer-logos i {
+    font-size: 40px;
+  }
+
+  .footer-logos .snapchat img {
+    width: 35px;
+    position: relative;
+    top: 1px;
+  }
+}

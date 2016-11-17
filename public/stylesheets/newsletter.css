@@ -1,0 +1,87 @@
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Newsletter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.newsletter {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.newsletter input {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: auto;
+  font-family: "Proxima Nova";
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.newsletter input[type="email"] {
+  padding: 15px 20px;
+  background-color: #f6f8fa;
+  border: none;
+  width: 100%:
+}
+
+.newsletter input[type="submit"] {
+  margin-top: 14px;
+  background-color: #2b3e51;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (min-width: 45em) {
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Newsletter
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  .newsletter {
+    background-color: #ed3954;
+    padding-top: 20vh;
+    padding-bottom: 0;
+  }
+
+    .newsletter h3 {
+      margin: 0;
+      margin-bottom: 24px;
+      color: #2b3e51;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .newsletter form {
+      background-color: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding-top: 50px;
+      padding-bottom: 30px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .newsletter input {
+      display: block;
+      max-width: 300px;
+      width: 100%;
+      margin: auto;
+      font-family: "Proxima Nova";
+      box-sizing: border-box;
+      outline: 0;
+    }
+
+    .newsletter input[type="email"] {
+      border-radius: 5px;
+    }
+
+    .newsletter input[type="submit"] {
+      border-radius: 5px;
+    }
+  }

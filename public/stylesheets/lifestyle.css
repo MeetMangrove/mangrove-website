@@ -1,0 +1,106 @@
+.manifesto .title {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 32px;
+  margin: 32px 0 64px;;
+}
+
+.manifesto-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  letter-spacing: 0.02em;
+  line-height: 1.2em;
+  font-size: 0.75em;
+}
+
+.manifesto .signature {
+  text-align: right;
+}
+
+section.playbook {
+  background-color: #f6f8fa;
+}
+
+.lifestyle section:nth-child(odd) {
+  background-color: #f6f8fa;
+}
+
+.lifestyle .image img {
+  display: block;
+  max-width: 100%;
+}
+
+.lifestyle section {
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 45em) {
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Sections - Lifestyle
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  section.playbook {
+    background-size: auto;
+    background-position: right 100px center;
+    background-repeat: no-repeat;
+    background-image:url(../images/mangroveplaybook.png);
+    background-color: #fff;
+  }
+
+  .lifestyle section {
+    padding: 0 100px;
+  }
+
+  .image {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .lifestyle section:nth-child(odd) .image {
+    right: 100px;
+  }
+
+  .lifestyle section:nth-child(even) .image {
+    left: 100px;
+  }
+
+  .lifestyle .image img {
+    display: block;
+  }
+
+  .lifestyle .image.iphone img {
+    max-height: 100vh;
+    max-width: 400px;
+  }
+
+  .detail {
+    display: none;
+  }
+
+  .manifesto-container {
+    background-color: #f6f8fa;
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .manifesto .title {
+    margin: 0;
+  }
+
+    .manifesto {
+      padding: 100px;
+      background-color: #fff;
+      max-width: 600px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    .manifesto p {
+      margin: 64px 0;
+      line-height: 1.2em;
+    }
+}

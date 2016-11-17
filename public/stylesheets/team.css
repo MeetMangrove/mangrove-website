@@ -1,0 +1,119 @@
+.members {
+  box-sizing: border-box;
+}
+
+.team {
+  margin-bottom: 40px;
+}
+
+.team p {
+  color: #5b5b5b;
+}
+
+.team ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.team .member-profile {
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #EEE;
+}
+
+.team a {
+  color: #2a2a2a;
+  font-size: 0.8em;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.team li, .team li a {
+  display: inline-block;
+}
+
+.team .member-name {
+  margin-top: 18px;
+  text-overflow: ellipsis;
+}
+
+.team li {
+  width: 40%;
+  margin: 5%;
+}
+
+.team li a {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 35em) {
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Team
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+
+  .members {
+    padding-top: 120px;
+  }
+
+  .team {
+    text-align: center;
+    margin-bottom: 84px;
+  }
+
+  .team h2 {
+    margin-bottom: 12px;
+  }
+
+  .team p {
+    margin-bottom: 32px;
+  }
+
+  .team ul {
+    max-width: 1200px;
+  }
+
+  .team li {
+    margin: 25px;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    vertical-align: text-top;
+    display:table-cell
+  }
+
+  .team li a {
+    width: auto;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .team li, .team li a {
+    display: inline-block;
+  }
+
+  .team .member-profile {
+    width: 160px;
+    height: 160px;
+    padding-bottom: 0;
+  }
+
+  .team a {
+    color: #2a2a2a;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .team .member-name {
+    margin-top: 18px;
+  }
+}
