@@ -1,6 +1,5 @@
 .manifesto .title {
   text-align: center;
-  text-decoration: underline;
   font-size: 32px;
   margin: 32px 0 64px;;
 }
@@ -99,8 +98,20 @@ section.playbook {
       font-size: 16px;
     }
 
+    .manifesto p, .manifesto .signature {
+      font-family: georgia;
+      font-style: italic;
+    }
+
     .manifesto p {
       margin: 64px 0;
-      line-height: 1.2em;
+      line-height: 1.5em;
     }
+}
+
+
+@media (max-width:1200px) and (min-width:45em) {
+  .lifestyle .image img {
+    display: none;
+  }
 }
