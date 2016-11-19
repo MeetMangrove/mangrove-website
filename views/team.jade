@@ -32,9 +32,12 @@ block content
 
     var getRandomFriends = function(amount, friends) {
       var randomFriends = [];
-      for (var i = 0; i < amount; i++) {
-        var idx = Math.random() * friends.length;
-        randomFriends.push(friends[i]);
+      while (randomFriends.length < amount) {
+        var idx = Math.floor(Math.random() * friends.length);
+        var friend = friends[idx];
+        if (randomFriends.indexOf(friend) < 0) {
+          randomFriends.push(friend);
+        }
       }
 
       return randomFriends;
