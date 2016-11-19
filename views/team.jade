@@ -58,7 +58,6 @@ block content
         var newFriendDiv = generateFriendDiv(newFriend);
         var idx = Math.floor(Math.random() * numFriends);
 
-        console.log(newFriendDiv);
         $($friendsDiv.children()[idx]).replaceWith(newFriendDiv);
       }, 5000);
     };
