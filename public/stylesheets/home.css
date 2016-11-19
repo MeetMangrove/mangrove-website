@@ -5,35 +5,47 @@ section {
   box-sizing: border-box;
 }
 
-  section .content {
-    width: 100%;
-  }
+section:nth-child(odd) {
+  background-color: #f6f8fa;
+}
 
-  h2 {
-    color: #ed3956;
-    font-size: 45px;
-    font-weight: 500;
-    margin: 0;
-  }
+section .content {
+  width: 100%;
+}
 
-  section .content a {
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 3px;
-    border: 2px solid #5b5b5b;
-    text-decoration: none;
-    color: #5b5b5b;
-  }
+h2 {
+  color: #ed3956;
+  font-size: 45px;
+  font-weight: 500;
+  margin: 0;
+}
 
-  section .content a:hover {
-    background-color: #5b5b5b;
-    color: #fff;
-  }
+section .content a {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 3px;
+  border: 2px solid #5b5b5b;
+  text-decoration: none;
+  color: #5b5b5b;
+}
 
-  section .content p {
-    color: #5b5b5b;
-    line-height: 1.25em;
+section .content a:hover {
+  background-color: #5b5b5b;
+  color: #fff;
+}
+
+section .content p {
+  color: #5b5b5b;
+  line-height: 1.25em;
+}
+
+
+/* Obligatory hack to override inline background for mobile. */
+@media only screen and (max-width: 45em) {
+  section {
+    background-image: none !important;
   }
+}
 
 
 @media only screen and (min-width: 45em) {

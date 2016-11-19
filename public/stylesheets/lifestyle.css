@@ -10,19 +10,11 @@
   box-sizing: border-box;
   letter-spacing: 0.02em;
   line-height: 1.2em;
-  font-size: 0.75em;
+  font-size: 1em;
 }
 
 .manifesto .signature {
   text-align: right;
-}
-
-section.playbook {
-  background-color: #f6f8fa;
-}
-
-.lifestyle section:nth-child(odd) {
-  background-color: #f6f8fa;
 }
 
 .lifestyle .image img {
@@ -82,8 +74,9 @@ section.playbook {
 
   .manifesto-container {
     background-color: #f6f8fa;
-    width: 100%;
+    font-size: 0.75em;
     padding: 50px 0;
+    width: 100%;
   }
 
   .manifesto .title {
