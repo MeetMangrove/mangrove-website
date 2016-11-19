@@ -2,7 +2,7 @@ extends layout
 
 block content
   each section,key in sections
-    section(style="background-image:url(images/#{key}.png)")
+    section(class="lifestyle" style="background-image:url(images/#{key}.png)")
       .content
         .text
           h2=section.title
