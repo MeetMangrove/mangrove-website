@@ -21,15 +21,16 @@ Header
 }
 
 h1 {
+  bottom: 32px;
+  color: #fff;
+  text-align: center;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: #fff;
-  margin: 0;
-
   position: absolute;
-  bottom: 32px;
-  width: 100%;
-  text-align: center;
+  right: 0
+  left: 0;
+  margin: 0;
+  padding: 0 20px;
 }
 
 @-webkit-keyframes move-arrow {
@@ -118,7 +119,7 @@ Head
   color: #fff;
   padding: 3em 1em;
   line-height: 1.4em;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .head a {
