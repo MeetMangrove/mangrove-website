@@ -15,9 +15,49 @@ block content
   .team
     h2 Mangrove Friends
     p.explanation They believe in our vision. We believe in what they do.
-    ul
-      each fr,key in friends
-        li
-          a(href="http://twitter.com/#{fr.twitter}", target="_blank")
-            .member-profile(style="background-image: url(#{fr.image})")
-            .member-name #{fr.first_name} #{fr.last_name}
+    ul#friends
+
+  script(type='text/javascript').
+    var generateFriendDiv = function(f) {
+      var html = '<li><a href="http://twitter.com/'+f.twitter+'" target="_blank">';
+      html += '<div class="member-profile" style="background-image: url('+f.image+')"></div>';
+      html += '<div class="member-name">'+f.first_name+' '+f.last_name+'</div>';
+
+      return html;
+    };
+
+    var getNewFriend = function(friends) {
+      var idx = Math.floor(Math.random() * friends.length);
+      return friends[idx];
+    };
+
+    var getRandomFriends = function(amount, friends) {
+      var randomFriends = [];
+      for (var i = 0; i < amount; i++) {
+        var idx = Math.random() * friends.length;
+        randomFriends.push(friends[i]);
+      }
+
+      return randomFriends;
+    };
+
+    var initFriends = function() {
+      var numFriends = 20;
+      var $friendsDiv = $('#friends');
+      var friends =!{JSON.stringify(friends)};
+      var randomFriends = getRandomFriends(numFriends, friends);
+
+      for (var i = 0; i < randomFriends.length; i++) {
+        $friendsDiv.append(generateFriendDiv(randomFriends[i]));
+      }
+
+      window.setInterval(function() {
+        var newFriend = getNewFriend(friends);
+        var newFriendDiv = generateFriendDiv(newFriend);
+        var idx = Math.floor(Math.random() * numFriends);
+
+        console.log(newFriendDiv);
+        $($friendsDiv.children()[idx]).replaceWith(newFriendDiv);
+      }, 5000);
+    };
+    initFriends();
