@@ -17,49 +17,16 @@ block content
     p.explanation They believe in our vision. We believe in what they do.
     ul#friends
 
-  script(type='text/javascript').
-    var generateFriendDiv = function(f) {
-      var html = '<li><a href="http://twitter.com/'+f.twitter+'" target="_blank">';
-      html += '<div class="member-profile" style="background-image: url('+f.image+')"></div>';
-      html += '<div class="member-name">'+f.first_name+' '+f.last_name+'</div></li>';
+  script(src="scripts/team.js")
+  script.
+    $(function() {
+      var options = {
+        elements: !{JSON.stringify(friends)},
+        amountToShow: 20,
+        timeout: 5000,
+        friendsDiv: '#friends'
+      };
+      var friendSection = new window.FriendsSection(options);
+      friendSection.init();
+    });
 
-      return html;
-    };
-
-    var getNewFriend = function(friends) {
-      var idx = Math.floor(Math.random() * friends.length);
-      return friends[idx];
-    };
-
-    var getRandomFriends = function(amount, friends) {
-      var randomFriends = [];
-      while (randomFriends.length < amount) {
-        var idx = Math.floor(Math.random() * friends.length);
-        var friend = friends[idx];
-        if (randomFriends.indexOf(friend) < 0) {
-          randomFriends.push(friend);
-        }
-      }
-
-      return randomFriends;
-    };
-
-    var initFriends = function() {
-      var numFriends = 20;
-      var $friendsDiv = $('#friends');
-      var friends =!{JSON.stringify(friends)};
-      var randomFriends = getRandomFriends(numFriends, friends);
-
-      for (var i = 0; i < randomFriends.length; i++) {
-        $friendsDiv.append(generateFriendDiv(randomFriends[i]));
-      }
-
-      window.setInterval(function() {
-        var newFriend = getNewFriend(friends);
-        var newFriendDiv = generateFriendDiv(newFriend);
-        var idx = Math.floor(Math.random() * numFriends);
-
-        $($friendsDiv.children()[idx]).replaceWith(newFriendDiv);
-      }, 5000);
-    };
-    initFriends();

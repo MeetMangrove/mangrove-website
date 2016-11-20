@@ -1,4 +1,5 @@
 doctype html
+doctype html
 html.no-js(lang="")
   head
     meta(charset="utf-8")
@@ -6,13 +7,13 @@ html.no-js(lang="")
     title= title
     meta(name="description" content="")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    
+
     meta(property="og:url" content="http://www.meetmangrove.com")
     meta(property="og:type" content="website")
     meta(property="og:title" content="From Work To Life")
     meta(property="og:description" content="Mangrove develops a new way of working, focused on collaboration and personal fulfillment. We are a global team of passionate tech freelancers and entrepreneurs sharing the same values. Everyday, we learn from each other, build projects together and share unique experiences across the world.")
     meta(property="og:image" content="http://maxbrodi.github.io/mangrove/images/share-fb2.png")
-    
+
     meta(name="twitter:card" content="summary_large_image")
     meta(name="twitter:site" content="@meetmangrove")
     meta(name="twitter:title" content="Mangrove")
@@ -31,8 +32,8 @@ html.no-js(lang="")
 
     script(src="//use.fontawesome.com/6035d6a879.js")
     script(src='scripts/modernizr-2.8.3.min.js')
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
-    
+    script(src="scripts/jquery-2.2.3.min.js")
+
     body
         // [if lt IE 8]
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -63,14 +64,11 @@ html.no-js(lang="")
         .footer
           .footer-legend Any question? Get in touch with us:
           .footer-link: a(href="mailto:hello@meetmangrove.com") hello@meetmangrove.com
-          .footer-logos      
+          .footer-logos
             a(href="https://twitter.com/intent/follow?screen_name=meetmangrove"): i(class="fa fa-twitter")
             a(href="https://www.snapchat.com/add/meetmangrove" target="_blank" class="snapchat"): i(class="fa fa-snapchat-ghost")
             a(href="https://www.facebook.com/meetmangrove" target="_blank"): i(class="fa fa-facebook-official")
 
-        script(src="https://code.jquery.com/jquery-2.2.3.min.js")
-        script. 
-          window.jQuery || document.write('<script src="scripts/jquery-2.2.3.min.js"><\/script>')
         script(src="scripts/jquery.scrollTo.min.js")
         script(src="scripts/main.js")
 
@@ -80,4 +78,4 @@ html.no-js(lang="")
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-87631128-1', 'auto');ga('send', 'pageview');
-        
+
