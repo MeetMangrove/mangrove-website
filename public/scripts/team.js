@@ -48,7 +48,7 @@ window.FriendsSection = function(opts) {
 
     window.setInterval(function() {
       this.swapFriend(nextFriendIndex);
-      nextFriendIndex = (nextFriendIndex + 1) % this.friends.length;
+      nextFriendIndex++ % this.friends.length;
     }.bind(this), this.timeout);
   };
 };
