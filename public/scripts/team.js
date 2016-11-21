@@ -3,7 +3,16 @@ window.FriendsSection = function(opts) {
   this.amountToShow = opts.amountToShow || 20;
   this.timeout = opts.timeout || 5000;
   this.friendsDiv = $(opts.wrapper || '#friends');
-  this.activeFriends = [];
+
+  this.randomizeArray = function(a) {
+    var j, x, i;
+    for (var i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+  };
 
   this.generateFriendDiv = function(f) {
     var html = '<div data-twitter='+f.twitter+'><a href="http://twitter.com/'+f.twitter+'" target="_blank">';
@@ -13,54 +22,12 @@ window.FriendsSection = function(opts) {
     return html;
   };
 
-  this.getNewFriend = function() {
-    var duplicate = true;
+  this.swapFriend = function(idx) {
+    var idxToRemove = Math.floor(Math.random() * this.amountToShow);
+    var oldFriend = this.friendsDiv.children().get(idxToRemove);
 
-    while (duplicate) {
-      var idx = Math.floor(Math.random() * this.friends.length);
-      var newFriend = this.friends[idx];
-
-      if (this.activeFriends.indexOf(newFriend) < 0) {
-        duplicate = false;
-      }
-    }
-
-    return newFriend;
-  }.bind(this);
-
-  this.getRandomFriends = function() {
-    var randomFriends = [];
-    while (randomFriends.length < this.amountToShow) {
-      var idx = Math.floor(Math.random() * this.friends.length);
-      var friend = this.friends[idx];
-      if (randomFriends.indexOf(friend) < 0) {
-        randomFriends.push(friend);
-      }
-    }
-
-    this.activeFriends = randomFriends;
-    return randomFriends;
-  }.bind(this);
-
-  this.removeFriendFromActiveList = function(twitter) {
-    for (var i = 0; i < this.activeFriends.length; i++) {
-      if (this.activeFriends[i].twitter === twitter) {
-        this.activeFriends.splice(i, 1);
-        return;
-      }
-    }
-  }
-
-  this.swapFriend = function() {
-    var idx = Math.floor(Math.random() * this.amountToShow);
-    var oldFriend = this.friendsDiv.children().get(idx);
-    this.removeFriendFromActiveList(
-      $(oldFriend).children("div").data("twitter")
-    );
-
-    var newFriend = this.getNewFriend();
+    var newFriend = this.friends[idx];
     var newFriendDiv = this.generateFriendDiv(newFriend);
-    this.activeFriends.push(newFriend);
 
     $(oldFriend).fadeOut('slow', function() {
       $(this).html(newFriendDiv);
@@ -68,16 +35,20 @@ window.FriendsSection = function(opts) {
   }.bind(this);
 
   this.init = function() {
-    var randomFriends = this.getRandomFriends();
+    this.randomizeArray(this.friends);
 
-    for (var i = 0; i < randomFriends.length; i++) {
+    var firstFriends = this.friends.slice(0, this.amountToShow);
+    var nextFriendIndex = this.amountToShow;
+
+    for (var i = 0; i < firstFriends.length; i++) {
       this.friendsDiv.append(
-        '<li>'+this.generateFriendDiv(randomFriends[i])+'</li>'
+        '<li>'+this.generateFriendDiv(this.friends[i])+'</li>'
       );
     }
 
     window.setInterval(function() {
-      this.swapFriend()
+      this.swapFriend(nextFriendIndex);
+      nextFriendIndex = (nextFriendIndex + 1) % this.friends.length;
     }.bind(this), this.timeout);
   };
 };
