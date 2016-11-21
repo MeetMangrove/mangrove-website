@@ -46,9 +46,11 @@ window.FriendsSection = function(opts) {
       );
     }
 
+    console.log('max:', this.friends.length);
     window.setInterval(function() {
       this.swapFriend(nextFriendIndex);
-      nextFriendIndex++ % this.friends.length;
+      nextFriendIndex = ++nextFriendIndex % this.friends.length;
+      console.log(nextFriendIndex);
     }.bind(this), this.timeout);
   };
 };
