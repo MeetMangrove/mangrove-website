@@ -14,9 +14,18 @@ block content
   .team
     h2 Mangrove Friends
     p.explanation They believe in our vision. We believe in what they do.
-    ul
-      each fr,key in friends
-        li
-          a(href="http://twitter.com/#{fr.twitter}", target="_blank")
-            .member-profile(style="background-image: url(#{fr.image})")
-            .member-name #{fr.first_name} #{fr.last_name}
+    ul#friends
+
+  script(src="scripts/team.js")
+  script.
+    $(function() {
+      var options = {
+        elements: !{JSON.stringify(friends)},
+        amountToShow: 20,
+        timeout: 5000,
+        friendsDiv: '#friends'
+      };
+      var friendSection = new window.FriendsSection(options);
+      friendSection.init();
+    });
+
