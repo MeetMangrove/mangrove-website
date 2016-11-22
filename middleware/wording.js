@@ -1,12 +1,12 @@
-var google = require('googleapis');
+var google = require('googleapis')
 var auth = require('./auth.js')
 
-/*var drive = google.drive('v3');
+/*var drive = google.drive('v3')
 drive.files.list({
 	auth: auth
 }, function (err, resp) {
-	console.log(err);
-});*/
+	console.log(err)
+})*/
 
 var pages = {
 	home: {
@@ -60,7 +60,7 @@ function getWording(name) {
 				// Error handler
 				if (err) {
 					reject(err)
-					return;
+					return
 				}
 
 				// Fill generic info
@@ -91,7 +91,7 @@ function getWording(name) {
 							}
 							wording.sections.push(section)
 						}
-						break;
+						break
 					case 'values': // Values
 						var row = rows[0]
 						var section = {
@@ -102,7 +102,7 @@ function getWording(name) {
 						}
 						wording.section = section
 						wording.manifesto = row[4]
-						break;
+						break
 					case 'lifestyle': // Lifestyle
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
@@ -114,7 +114,7 @@ function getWording(name) {
 							}
 							wording.sections.push(section)
 						}
-						break;
+						break
 					case 'community': // Community
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
@@ -126,15 +126,15 @@ function getWording(name) {
 							}
 							wording.sections.push(section)
 						}
-						break;
+						break
 					default:
-						break;
+						break
 					}
 				}
 				resolve(wording)
-			});
-		});
-	});
+			})
+		})
+	})
 }
 
 var wordingMiddleware = function (req, res, next) {
@@ -150,6 +150,6 @@ var wordingMiddleware = function (req, res, next) {
 				next(err)
 			}
 		)
-};
+}
 
 module.exports = wordingMiddleware
