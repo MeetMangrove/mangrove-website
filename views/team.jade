@@ -10,6 +10,7 @@ block content
           a(href="http://twitter.com/#{mb.twitter}", target="_blank")
             .member-profile(style="background-image: url(#{mb.image})")
             .member-name #{mb.first_name} #{mb.last_name}
+            .member-points #{mb.points} contributions
     div(style="clear:both;")
   .team
     h2 Mangrove Friends
@@ -28,4 +29,3 @@ block content
       var friendSection = new window.FriendsSection(options);
       friendSection.init();
     });
-
