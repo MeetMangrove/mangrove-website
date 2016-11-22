@@ -43,6 +43,10 @@
   text-overflow: ellipsis;
 }
 
+.team .member-points {
+	font-weight: lighter;
+}
+
 .team li {
   width: 40%;
   margin: 5%;
