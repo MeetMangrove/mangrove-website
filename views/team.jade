@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
   .team.members#head
     h2 Mangrove Co-founders
     p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
@@ -10,7 +11,6 @@ block content
           a(href="http://twitter.com/#{mb.twitter}", target="_blank")
             .member-profile(style="background-image: url(#{mb.image})")
             .member-name #{mb.first_name} #{mb.last_name}
-            .member-points #{mb.points} contributions
     div(style="clear:both;")
   .team
     h2 Mangrove Friends
