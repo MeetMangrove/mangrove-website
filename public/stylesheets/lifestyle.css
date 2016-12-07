@@ -35,10 +35,10 @@
   */
 
   section.playbook {
-    background-size: auto;
-    background-position: right 100px center;
+    background-size: 21%;
+    background-position: right 23% center;
     background-repeat: no-repeat;
-    background-image:url(../images/mangroveplaybook.png);
+    background-image: url(../images/mangroveplaybook.png);
     background-color: #fff;
   }
 
@@ -101,6 +101,24 @@
       line-height: 1.5em;
     }
 }
+
+  .videocontent{
+    padding: 14%;
+  }
+
+  .videoWrapper {
+    position: relative;
+    padding-bottom: 53%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
 
 @media (max-width:1200px) and (min-width:45em) {

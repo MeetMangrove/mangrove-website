@@ -5,10 +5,17 @@ block content
     each section,key in sections
       section
         .content
-          .text
-            h2=section.title
-            p=section.text
-          .image
-            img(src="images/lifestyle_#{key}.png")
-            .detail=section.detail
+          if section.title=='video'
+            .videocontent
+                .videoWrapper
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/3OVhSbP7KZI" frameborder="0" allowfullscreen></iframe>
+                .videotext
+                  p Some insights from our retreat in Portugal (June 2016)
+          else
+            .text
+                h2=section.title
+                p=section.text
+            .image
+              img(src="images/lifestyle_#{key}.png")
+              .detail=section.detail
         div(style="clear:both;")
