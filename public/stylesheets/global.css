@@ -93,6 +93,10 @@ Menu
     margin-top: 50px;
   }
 
+  .menu .logo img{
+    width: 66%;
+  }
+
   .menu li {
   }
 
@@ -228,6 +232,8 @@ Footer
 
       .menu .logo img {
         vertical-align: middle;
+        width: 39%;
+        padding-bottom: 0%;
       }
 
     .menu ul {

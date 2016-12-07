@@ -6,9 +6,11 @@ block content
       section
         .content
           if section.title=='video'
-            .video
-                p VIDEO
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3OVhSbP7KZI" frameborder="0" allowfullscreen></iframe>
+            .videocontent
+                .videoWrapper
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/3OVhSbP7KZI" frameborder="0" allowfullscreen></iframe>
+                .videotext
+                  p Some insights from our retreat in Portugal (June 2016)
           else
             .text
                 h2=section.title
