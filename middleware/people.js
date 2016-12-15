@@ -55,11 +55,13 @@ function peopleFilledWithGenericInfos(rows) {
 	for (var i = 0; i < rows.length; i++) {
 		var row = rows[i]
 		if (row.length !== 0) {
+			var tw = row[2] && row[2].length ? row[2] : null;
+			var img = tw ? "//avatars.io/twitter/"+tw.toLowerCase()+"/large" : row[3];
 			var person = {
 				first_name: row[0],
 				last_name: row[1],
-				twitter: row[2],
-				image: row[3]
+				twitter: tw,
+				image: img
 			}
 			if (row[4] == 1) { // member
 				members.push(person)
