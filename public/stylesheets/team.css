@@ -56,6 +56,16 @@
   width: 100%;
 }
 
+.team .member-card {
+	background-color: grey;
+	border-radius: 5px;
+	width: 40%;
+	display: inline-block;
+}
+
+.team .member-card .member-profile {
+	float: left;
+}
 
 @media only screen and (min-width: 35em) {
 
@@ -120,4 +130,10 @@
   .team .member-name {
     margin-top: 18px;
   }
+
+	.team .member-card {
+		height: 160px;
+		padding: 10px;
+		margin: 10px;
+	}
 }

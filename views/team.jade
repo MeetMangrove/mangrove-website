@@ -2,30 +2,39 @@ extends layout
 
 block content
 
-  .team.members#head
-    h2 Mangrove Co-founders
-    p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
-    ul
-      each mb,key in members
-        li
-          a(href="http://twitter.com/#{mb.twitter}", target="_blank")
-            .member-profile(style="background-image: url(#{mb.image})")
-            .member-name #{mb.first_name} #{mb.last_name}
-    div(style="clear:both;")
-  .team
-    h2 Mangrove Friends
-    p.explanation They believe in our vision. We believe in what they do.
-    ul#friends
+	.team.members#head
+		h2 Mangrove Co-founders
+		p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
+		each mb,key in members
+			a(href="http://twitter.com/#{mb.twitter}", target="_blank")
+				.member-card
+					.member-profile(style="background-image: url(#{mb.image})")
+					.member-name #{mb.firstName} #{mb.lastName}
+						if mb.fire 
+							🔥
+						if mb.newbie
+							🌱
+					.member-points #{mb.points} CP
+					.member-date #{mb.dateOfArrival}
+					.member-place #{mb.currentCity}
+					each track,key in mb.tracks
+						.member-track #{track}
 
-  script(src="scripts/team.js")
-  script.
-    $(function() {
-      var options = {
-        elements: !{JSON.stringify(friends)},
-        amountToShow: 20,
-        timeout: 3500,
-        friendsDiv: '#friends'
-      };
-      var friendSection = new window.FriendsSection(options);
-      friendSection.init();
-    });
+		div(style="clear:both;")
+	.team
+		h2 Mangrove Friends
+		p.explanation They believe in our vision. We believe in what they do.
+		ul#friends
+
+	script(src="scripts/team.js")
+	script.
+		$(function() {
+			var options = {
+				elements: !{JSON.stringify(friends)},
+				amountToShow: 20,
+				timeout: 3500,
+				friendsDiv: '#friends'
+			};
+			var friendSection = new window.FriendsSection(options);
+			friendSection.init();
+		});
