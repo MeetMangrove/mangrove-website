@@ -38,13 +38,66 @@
   display: inline-block;
 }
 
+.team .member-info{
+  display: inline-block;
+  text-align: left;
+}
+
+.team .member-info .member-date{
+  display: inline-block;
+  font-size: 0.8em;
+  color: #c5c5c5;
+}
+
+.team .member-info .member-place{
+  display: inline-block;
+  font-size: 0.8em;
+  padding-left: 0.3em;
+  color: #c5c5c5;
+}
+
 .team .member-name {
   margin-top: 18px;
   text-overflow: ellipsis;
 }
 
-.team .member-points {
+.team .member-name-core{
+  margin-top: 18px;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-bottom: -6px;
+}
+
+.team .member-ico {
+  display: inline-block;
+  font-size: 0.6em;
+  padding-left: 0.3em;
+}
+
+.team .member-contribution {
+  display: inline-block;
 	font-weight: lighter;
+  font-size: 0.8em;
+  padding-left: 0.3em;
+}
+
+.team .member-contribution .member-points {
+  display: inline-block;
+  font-size: 0.7em;
+  padding-left: 0.2em;
+  font-weight: 600;
+}
+
+.team .member-imageholder{
+  display: inline-block;
+  float: left;
+  margin-left: 2%;
+}
+
+.team .member-imageholder .member-image img{
+  height: 100px;
+  border-radius: 100%;
 }
 
 .team li {
@@ -57,14 +110,38 @@
 }
 
 .team .member-card {
-	background-color: grey;
+	background-color: whitesmoke;
 	border-radius: 5px;
 	width: 40%;
 	display: inline-block;
 }
 
+.team .member-card:first-child{
+  color: #2BBFF9;
+  background-color: red;
+}
+
 .team .member-card .member-profile {
 	float: left;
+}
+
+.team .member-track{
+  display: inline-block;
+  border: 1px;
+  border-style: solid;
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-size: 0.8em;
+  margin-top: 8px;
+  margin-right: 6px;
+}
+
+.team .member-track #Architect{
+  color: #2BBFF9;
+}
+
+.team .clear-member{
+  clear: left;
 }
 
 @media only screen and (min-width: 35em) {
@@ -132,7 +209,6 @@
   }
 
 	.team .member-card {
-		height: 160px;
 		padding: 10px;
 		margin: 10px;
 	}
