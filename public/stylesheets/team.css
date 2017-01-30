@@ -121,11 +121,6 @@
 	display: inline-block;
 }
 
-.team .member-card:first-child{
-  color: #2BBFF9;
-  background-color: red;
-}
-
 .team .member-card .member-profile {
 	float: left;
 }
