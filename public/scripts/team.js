@@ -17,7 +17,7 @@ window.FriendsSection = function(opts) {
   this.generateFriendDiv = function(f) {
     var html = '<div data-twitter='+f.twitter+'><a href="http://twitter.com/'+f.twitter+'" target="_blank">';
     html += '<div class="member-profile" style="background-image: url('+f.image+')"></div>';
-    html += '<div class="member-name">'+f.first_name+' '+f.last_name+'</div></div>';
+    html += '<div class="member-name">'+f.name+'</div></div>';
 
     return html;
   };
