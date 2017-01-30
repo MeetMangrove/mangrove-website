@@ -38,13 +38,71 @@
   display: inline-block;
 }
 
+.team .member-info{
+  display: inline-block;
+  text-align: left;
+  float: left;
+  margin-left: 26px;
+  margin-top: -5px;
+}
+
+.team .member-info .member-date{
+  display: inline-block;
+  font-size: 0.8em;
+  color: #c5c5c5;
+}
+
+.team .member-info .member-place{
+  display: inline-block;
+  font-size: 0.8em;
+  padding-left: 0.3em;
+  color: #c5c5c5;
+}
+
 .team .member-name {
   margin-top: 18px;
   text-overflow: ellipsis;
 }
 
-.team .member-points {
+.team .member-name-core{
+  margin-top: 18px;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-bottom: -6px;
+}
+
+.team .member-ico {
+  display: inline-block;
+  font-size: 0.6em;
+  padding-left: 0.3em;
+}
+
+.team .member-contribution {
+  display: inline-block;
 	font-weight: lighter;
+  font-size: 0.8em;
+  padding-left: 0.3em;
+}
+
+.team .member-contribution .member-points {
+  display: inline-block;
+  font-size: 0.7em;
+  padding-left: 0.2em;
+  font-weight: 600;
+}
+
+.team .member-imageholder{
+  display: inline-block;
+  float: left;
+  margin-left: 2%;
+}
+
+.team .member-imageholder .member-image img{
+  height: 90px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 100%;
 }
 
 .team li {
@@ -56,6 +114,57 @@
   width: 100%;
 }
 
+.team .member-card {
+	background-color: whitesmoke;
+	border-radius: 5px;
+	width: 40%;
+	display: inline-block;
+}
+
+.team .member-card .member-profile {
+	float: left;
+}
+
+.team .member-track{
+  display: inline-block;
+  border: 1px;
+  border-style: solid;
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-size: 0.8em;
+  margin-top: 8px;
+  margin-right: 6px;
+}
+
+.team .track-1{
+  display: inline-block;
+  color:#2BBFF9;
+  border-color: #2BBFF9;
+}
+
+.team .track-2{
+  display: inline-block;
+  color:#EE9435;
+  border-color: #EE9435;
+}
+
+.team .track-3{
+  display: inline-block;
+  color:#53DB74;
+  border-color: #53DB74;
+}
+
+.team .track-4{
+  display: inline-block;
+  color:#FF6F95;
+  border-color: #FF6F95;
+
+}
+
+.team .clear-member{
+  clear: left;
+  padding-top: 5px;
+}
 
 @media only screen and (min-width: 35em) {
 
@@ -120,4 +229,9 @@
   .team .member-name {
     margin-top: 18px;
   }
+
+	.team .member-card {
+		padding: 10px;
+		margin: 10px;
+	}
 }

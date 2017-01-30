@@ -2,30 +2,57 @@ extends layout
 
 block content
 
-  .team.members#head
-    h2 Mangrove Co-founders
-    p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
-    ul
-      each mb,key in members
-        li
-          a(href="http://twitter.com/#{mb.twitter}", target="_blank")
-            .member-profile(style="background-image: url(#{mb.image})")
-            .member-name #{mb.first_name} #{mb.last_name}
-    div(style="clear:both;")
-  .team
-    h2 Mangrove Friends
-    p.explanation They believe in our vision. We believe in what they do.
-    ul#friends
+	.team.members#head
+		h2 Mangrove Co-founders
+		p.explanation Every Mangrove member is a co-founder. It means that we are all entitled to start new ventures inside our ecosystem.
+			each mb,key in members
+				.member-card
+					.member-imageholder
+						a(href="http://twitter.com/#{mb.twitter}", target="_blank")
+							.member-image
+								img(src="#{mb.image}")
+					.member-info
+						.member-name-core #{mb.firstName} #{mb.lastName}
+							.member-contribution
+								if mb.fire
+									.member-ico 🔥
+								if mb.newbie
+									.member-ico 🌱
+								.member-points #{mb.points} CP
+						.member-date #{mb.dateOfArrival} •
+						.member-place #{mb.currentCity}
+						.clear-member
+							- var count = 0
+							each track,key in mb.tracks
+								- count++
+									case track
+										when 'Architect'
+											.track-1
+												.member-track #{track}
+										when 'Greeter'
+											.track-2
+												.member-track #{track}
+										when 'Speaker'
+											.track-3
+												.member-track #{track}
+										when 'Messenger'
+											.track-4
+												.member-track #{track}
+		div(style="clear:both;")
+	.team
+		h2 Mangrove Friends
+		p.explanation They believe in our vision. We believe in what they do.
+		ul#friends
 
-  script(src="scripts/team.js")
-  script.
-    $(function() {
-      var options = {
-        elements: !{JSON.stringify(friends)},
-        amountToShow: 20,
-        timeout: 3500,
-        friendsDiv: '#friends'
-      };
-      var friendSection = new window.FriendsSection(options);
-      friendSection.init();
-    });
+	script(src="scripts/team.js")
+	script.
+		$(function() {
+			var options = {
+				elements: !{JSON.stringify(friends)},
+				amountToShow: 20,
+				timeout: 3500,
+				friendsDiv: '#friends'
+			};
+			var friendSection = new window.FriendsSection(options);
+			friendSection.init();
+		});

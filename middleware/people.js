@@ -1,10 +1,34 @@
 var google = require('googleapis')
 var auth = require('./auth.js')
 
+function getPeople() {
+	return new Promise(function (resolve, reject) {
+		var result = {}
+
+		getMembers().then(
+			function(members) {
+				result['members'] = members
+
+				getFriends().then(
+					function(friends) {
+						result['friends'] = friends
+
+						resolve(result)
+					}
+				)
+			},
+
+			function(error) {
+				reject(error)
+			}
+		)
+	})
+}
+
 /**
 Get people from the Mangrove Friends spreadsheet
 */
-function getPeople() {
+function getFriends() {
 	return new Promise(function (resolve, reject) {
 		// Make auth
 		auth.authorize(function (err, tokens) {
@@ -28,58 +52,15 @@ function getPeople() {
 
 				// Fill with generic infos
 				var rows = response.values
-				var result = peopleFilledWithGenericInfos(rows)
-
-				// Fill with points
-				getPoints().
-					then(
-						function (points) {
-							result = appendPointsToPeople(result, points)
-							resolve(result)
-						},
-						function (err) {
-							reject(err)
-						}
-					)
+				var friends = formatFriends(rows)
+				resolve(friends)
 			})
 		})
 	})
 }
 
-/**
-Create arrays of members and friends with infos found in the Mangrove Friends spreadsheet
-*/
-function peopleFilledWithGenericInfos(rows) {
-	var friends = []
-	var members = []
-	for (var i = 0; i < rows.length; i++) {
-		var row = rows[i]
-		if (row.length !== 0) {
-			var tw = row[2] && row[2].length ? row[2] : null;
-			var img = tw ? "//avatars.io/twitter/"+tw.toLowerCase()+"/large" : row[3];
-			var person = {
-				first_name: row[0],
-				last_name: row[1],
-				twitter: tw,
-				image: img
-			}
-			if (row[4] == 1) { // member
-				members.push(person)
-			} else if (row[4] == 0) { // friend
-				friends.push(person)
-			}
-		}
-	}
-	return {
-		friends: friends,
-		members: members
-	}
-}
 
-/**
-Get contributions points from the contributions points spreadsheet
-*/
-function getPoints() {
+function getMembers() {
 	return new Promise(function (resolve, reject) {
 		// Make auth
 		auth.authorize(function (err, tokens) {
@@ -92,8 +73,8 @@ function getPoints() {
 			var sheets = google.sheets('v4')
 			sheets.spreadsheets.values.get({
 				auth: auth,
-				spreadsheetId: '1R62yph7F8kuhE5YFW0f31Nb5eSCXHX1KBED-recRbVk',
-				range: 'total!A2:B'
+				spreadsheetId: '1_gpj4hH3NgaDdpzav1wUqIxTU-6-otSvqxccgwX-5aQ',
+				range: 'Members!A2:H'
 			}, function(err, response) {
 				// Error handler
 				if (err) {
@@ -101,36 +82,88 @@ function getPoints() {
 					return
 				}
 
-				// Return points
-				var points = response.values
-				resolve(points)
+				// Fill with generic infos
+				var rows = response.values
+				var members = formatMembers(rows)
+				members = orderMembers(members)
+				resolve(members)
 			})
 		})
 	})
 }
 
-/**
-Add points to members
-*/
-function appendPointsToPeople(people, points) {
-	// Get members
-	var members = people.members
+function orderMembers(members) {
+	members.sort(function(a, b) {
+		return a.rank - b.rank
+	})
 
-	// Add points
-	for (var i = 0; i < members.length; i++) {
-		var member = members[i]
-		for (var j=0; j < points.length; j++) {
-			var point = points[j]
-			var firstName = point[0]
-			if (member.first_name == firstName) {
-				members[i].points = point[1]
+	return members
+}
+function formatMembers(rows) {
+	var members = []
+	var threeMonthAgo = new Date()
+	threeMonthAgo.setMonth(threeMonthAgo.getMonth()-3)
+
+	for (var i = 0; i < rows.length; i++) {
+		var row = rows[i]
+
+		if (row.length !== 0) {
+			var tw = row[2] && row[2].length ? row[2] : null;
+			var img = tw ? 'https://twitter.com/' + tw + '/profile_image?size=original' : row[3];
+			var dateOfArrival = new Date(row[3])
+
+			var person = {
+				firstName: row[0],
+				lastName: row[1],
+				twitter: tw,
+				image: img,
+				dateOfArrival: formatArrivalDate(dateOfArrival),
+				points: row[4],
+				rank: row[5],
+				currentCity: row[6],
+				tracks: row[7].split(', '),
+				fire: (row[5] < 4),
+				newbie: (dateOfArrival > threeMonthAgo)
+			}
+
+			members.push(person)
+		}
+	}
+	console.log(members)
+
+	return members
+}
+
+function formatArrivalDate(date) {
+	var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+
+	return 'since ' + monthNames[date.getMonth()] + ' ' + date.getFullYear()
+}
+/**
+Create arrays of members and friends with infos found in the Mangrove Friends spreadsheet
+*/
+function formatFriends(rows) {
+	var friends = []
+
+	for (var i = 0; i < rows.length; i++) {
+		var row = rows[i]
+		if (row.length !== 0) {
+			var tw = row[2] && row[2].length ? row[2] : null;
+			var img = tw ? 'https://twitter.com/' + tw + '/profile_image?size=original' : row[3];
+			var person = {
+				first_name: row[0],
+				last_name: row[1],
+				twitter: tw,
+				image: img
+			}
+			if (row[4] == 0) { // friend
+				friends.push(person)
 			}
 		}
 	}
 
-	// Return people
-	people.members = members
-	return people
+	return friends
 }
 
 module.exports = {
