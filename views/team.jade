@@ -22,9 +22,22 @@ block content
 					.member-date #{mb.dateOfArrival} •
 					.member-place #{mb.currentCity}
 					.clear-member
-					each track,key in mb.tracks
-						.member-track #{track}
-
+						- var count = 0
+						each track,key in mb.tracks
+							- count++
+								case track
+									when 'Architect'
+										.track-1
+											.member-track #{track}
+									when 'Greeter'
+										.track-2
+											.member-track #{track}
+									when 'Speaker'
+										.track-3
+											.member-track #{track}
+									when 'Messenger'
+										.track-4
+											.member-track #{track}
 		div(style="clear:both;")
 	.team
 		h2 Mangrove Friends

@@ -41,6 +41,9 @@
 .team .member-info{
   display: inline-block;
   text-align: left;
+  float: left;
+  margin-left: 26px;
+  margin-top: -5px;
 }
 
 .team .member-info .member-date{
@@ -96,7 +99,9 @@
 }
 
 .team .member-imageholder .member-image img{
-  height: 100px;
+  height: 90px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 100%;
 }
 
@@ -136,12 +141,34 @@
   margin-right: 6px;
 }
 
-.team .member-track #Architect{
-  color: #2BBFF9;
+.team .track-1{
+  display: inline-block;
+  color:#2BBFF9;
+  border-color: #2BBFF9;
+}
+
+.team .track-2{
+  display: inline-block;
+  color:#EE9435;
+  border-color: #EE9435;
+}
+
+.team .track-3{
+  display: inline-block;
+  color:#53DB74;
+  border-color: #53DB74;
+}
+
+.team .track-4{
+  display: inline-block;
+  color:#FF6F95;
+  border-color: #FF6F95;
+
 }
 
 .team .clear-member{
   clear: left;
+  padding-top: 5px;
 }
 
 @media only screen and (min-width: 35em) {
