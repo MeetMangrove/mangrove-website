@@ -12,7 +12,6 @@ function getPeople() {
 				getFriends().then(
 					function(friends) {
 						result['friends'] = friends
-
 						resolve(result)
 					}
 				)
