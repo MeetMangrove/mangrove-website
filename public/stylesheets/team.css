@@ -3,7 +3,7 @@
 }
 
 .team {
-  margin: 40px 20px;
+  padding: 40px 20px;
 }
 
 .team p {
@@ -40,9 +40,8 @@
 
 .team .member-info{
   display: inline-block;
-  text-align: left;
-  float: left;
-  margin-left: 26px;
+  text-align: center;
+
   margin-top: -5px;
 }
 
@@ -69,7 +68,6 @@
   text-overflow: ellipsis;
   font-weight: 600;
   font-size: 1.6em;
-  margin-bottom: -6px;
 }
 
 .team .member-ico {
@@ -94,8 +92,8 @@
 
 .team .member-imageholder{
   display: inline-block;
-  float: left;
-  margin-left: 2%;
+  text-align: center;
+  width: 100%;
 }
 
 .team .member-imageholder .member-image img{
@@ -103,6 +101,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 100%;
+  display: inline-block;
 }
 
 .team li {
@@ -115,10 +114,16 @@
 }
 
 .team .member-card {
-	background-color: whitesmoke;
-	border-radius: 5px;
-	width: 40%;
-	display: inline-block;
+	background-color: #fff;
+  display: inline-block;
+
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .team .member-card .member-profile {
@@ -230,8 +235,24 @@
     margin-top: 18px;
   }
 
-	.team .member-card {
-		padding: 10px;
-		margin: 10px;
-	}
+  .team .member-card {
+    width: 40%;
+    min-width: 470px;
+  	margin: 10px;
+    padding: 10px;
+  }
+
+  .team .member-imageholder {
+    width:auto;
+    text-align: left;
+    float: left;
+    margin-left: 2%;
+  }
+
+  .team .member-info {
+    float: left;
+    text-align: left;
+    margin-left: 26px;
+  }
+
 }

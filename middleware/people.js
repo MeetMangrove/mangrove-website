@@ -2,6 +2,7 @@ var airtable = require('./airtable.js')
 
 function getPeople() {
 	return new Promise(function (resolve, reject) {
+
 		var members = []
 		var friends = []
 
@@ -80,7 +81,7 @@ function formatMembers(records) {
 			points: record.get('Points'),
 			currentCity: record.get('Location'),
 			tracks: record.get('Tracks') ? record.get('Tracks') : [],
-			fire: (i < 4),
+			fire: (i < 3),
 			newbie: (dateOfArrival > threeMonthAgo)
 		}
 
