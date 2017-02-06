@@ -79,7 +79,7 @@ function formatMembers(records) {
 			image: img,
 			dateOfArrival: formatArrivalDate(dateOfArrival),
 			points: record.get('Points'),
-			currentCity: record.get('Location'),
+			currentCity: record.get('Current Location'),
 			tracks: record.get('Tracks') ? record.get('Tracks') : [],
 			fire: (i < 3),
 			newbie: (dateOfArrival > threeMonthAgo)
