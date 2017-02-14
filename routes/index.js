@@ -2,6 +2,7 @@ var express = require('express')
 var wording = require('../middleware/wording.js')
 var people = require('../middleware/people.js')
 var router = express.Router()
+
 router.use(wording)
 
 router.get('/:name?', function(req, res, next) {

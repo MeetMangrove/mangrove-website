@@ -193,6 +193,11 @@ Footer
     height: 100vh;
   }
 
+  .header.small {
+    background: #ee3b52;
+    height: 70vh;
+  }
+
   h1 {
     font-size: 60px;
     font-weight: 500;
@@ -206,6 +211,11 @@ Footer
     width: auto;
     text-align: center;
   }
+
+    .small h1 {
+      font-size: 45px;
+      line-height: 82vh;
+    }
 
   .bottom-arrow {
     display: block;

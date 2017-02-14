@@ -40,21 +40,35 @@ html.no-js(lang="")
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         // [endif]
 
-        .header
-          .menu
-            .logo
-              a(href='/'): img(src="images/logo.png")
-            ul
-              li: a(href='/values') Values
-              li: a(href='/lifestyle') Lifestyle
-              li: a(href='/community') Community
-              li: a(href='/team') Team
-          .catchphrase
-            h1=catchphrase
-          .bottom-arrow
-            svg#healthcare-arrow(width="24px" height="14px" viewBox="24 29 24 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
-              defs
-              polyline#Path-72-Copy(stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="26 31 36 41 46 31")
+        if name == 'home'
+          .header
+            .menu
+              .logo
+                a(href='/'): img(src="images/logo.png")
+              ul
+                li: a(href='/values') Values
+                li: a(href='/lifestyle') Lifestyle
+                li: a(href='/community') Community
+                li: a(href='/team') Team
+            .catchphrase
+              h1=catchphrase
+            .bottom-arrow
+              svg#healthcare-arrow(width="24px" height="14px" viewBox="24 29 24 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+                defs
+                polyline#Path-72-Copy(stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="26 31 36 41 46 31")
+        else
+          .header.small
+            .menu
+              .logo
+                a(href='/'): img(src="images/logo.png")
+              ul
+                li: a(href='/values') Values
+                li: a(href='/lifestyle') Lifestyle
+                li: a(href='/community') Community
+                li: a(href='/team') Team
+            .catchphrase
+              h1=catchphrase        
+      
         if description
           .head#head
             .description=description
@@ -79,4 +93,3 @@ html.no-js(lang="")
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-87631128-1', 'auto');ga('send', 'pageview');
-

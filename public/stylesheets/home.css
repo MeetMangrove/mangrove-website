@@ -62,7 +62,7 @@ section .content p {
     padding: 0 100px;
     background-size: 100% auto;
     background-position: center center;
-    height: 100vh;
+    height: 80vh;
   }
 
   section .content {

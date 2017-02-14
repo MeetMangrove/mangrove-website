@@ -68,6 +68,7 @@ function getWording(name) {
 				var rows = tabs[0].values
 				var row = rows[page.index]
 				var wording = {
+					name: name,
 					title: row[1],
 					catchphrase: row[2],
 					cta: row[3],
