@@ -108,7 +108,7 @@ function getWording(name) {
 						wording.section = section
 						wording.manifesto = row[4]
 						break
-					case 'commmunity': // Community
+					case 'community': // Community
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
 							var row = rows[j]
