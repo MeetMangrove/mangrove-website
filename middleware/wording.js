@@ -21,13 +21,17 @@ var pages = {
 		ranges: ['Main!A2:E', 'Lifestyle!A2:C'],
 		index: 2
 	},
-	community: {
-		ranges: ['Main!A2:E', 'Community!A2:C'],
+	tools: {
+		ranges: ['Main!A2:E', 'Tools!A2:C'],
 		index: 3
 	},
 	team: {
 		ranges: ['Main!A2:E'],
 		index: 4
+	},
+	projects: {
+		ranges: ['Main!A2:E', 'Projects!A2:B'],
+		index: 5
 	}
 }
 
@@ -116,7 +120,7 @@ function getWording(name) {
 							wording.sections.push(section)
 						}
 						break
-					case 'community': // Community
+					case 'tools': // Tools
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
 							var row = rows[j]
@@ -125,6 +129,17 @@ function getWording(name) {
 								text: row[1],
 								image_detail: row[2]
 							}
+							wording.sections.push(section)
+						}
+						break
+					case 'projects': // Projects
+						wording.sections = []
+						for (var j = 0; j < rows.length; j++) {
+							var row = rows[j]
+							var section = {
+								title: row[0],
+								text: row[1],
+						}
 							wording.sections.push(section)
 						}
 						break
