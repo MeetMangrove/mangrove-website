@@ -17,8 +17,8 @@ var pages = {
 		ranges: ['Main!A2:E', 'Values!A2:E'],
 		index: 1
 	},
-	lifestyle: {
-		ranges: ['Main!A2:E', 'Lifestyle!A2:C'],
+	community: {
+		ranges: ['Main!A2:E', 'Community!A2:C'],
 		index: 2
 	},
 	tools: {
@@ -51,7 +51,7 @@ function getWording(name) {
 			// Get page
 			var page = pages[name]
 			if (!page) {
-				reject('Page name does not exists. Possible values are : home, values, lifestyle, community, team')
+				reject('Page name does not exists. Possible values are : home, values, projects, community, team')
 				return
 			}
 
@@ -108,7 +108,7 @@ function getWording(name) {
 						wording.section = section
 						wording.manifesto = row[4]
 						break
-					case 'lifestyle': // Lifestyle
+					case 'commmunity': // Community
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
 							var row = rows[j]
