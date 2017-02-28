@@ -28,6 +28,10 @@ var pages = {
 	team: {
 		ranges: ['Main!A2:E'],
 		index: 4
+	},
+	projects: {
+		ranges: ['Main!A2:E', 'Projects!A2:B'],
+		index: 5
 	}
 }
 
@@ -125,6 +129,17 @@ function getWording(name) {
 								text: row[1],
 								image_detail: row[2]
 							}
+							wording.sections.push(section)
+						}
+						break
+					case 'projects': // Projects
+						wording.sections = []
+						for (var j = 0; j < rows.length; j++) {
+							var row = rows[j]
+							var section = {
+								title: row[0],
+								text: row[1],
+						}
 							wording.sections.push(section)
 						}
 						break

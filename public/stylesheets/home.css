@@ -20,7 +20,7 @@ h2 {
   margin: 0;
 }
 
-section .content a {
+section .content a{
   display: inline-block;
   padding: 12px 20px;
   border-radius: 3px;
@@ -29,7 +29,7 @@ section .content a {
   color: #5b5b5b;
 }
 
-section .content a:hover {
+section .content a:hover{
   background-color: #5b5b5b;
   color: #fff;
 }
