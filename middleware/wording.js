@@ -17,7 +17,7 @@ var pages = {
 		ranges: ['Main!A2:E', 'Values!A2:E'],
 		index: 1
 	},
-	community: {
+	gatherings: {
 		ranges: ['Main!A2:E', 'Community!A2:C'],
 		index: 2
 	},
@@ -108,7 +108,7 @@ function getWording(name) {
 						wording.section = section
 						wording.manifesto = row[4]
 						break
-					case 'community': // Community
+					case 'gatherings': // Community
 						wording.sections = []
 						for (var j = 0; j < rows.length; j++) {
 							var row = rows[j]
