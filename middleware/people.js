@@ -46,7 +46,7 @@ function formatFriends (records) {
   for (var i = 0; i < records.length; i++) {
     var record = records[i]
     var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
-    var img = tw ? 'https://twitter.com/' + tw + '/profile_image?size=original' : null
+    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
     var person = {
       name: record.get('Name'),
       twitter: tw,
@@ -69,7 +69,7 @@ function formatMembers (records) {
     var record = records[i]
 
     var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
-    var img = tw ? 'https://twitter.com/' + tw + '/profile_image?size=original' : null
+    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
     var dateOfArrival = new Date(record.get('Cofounder Since'))
 
     var person = {

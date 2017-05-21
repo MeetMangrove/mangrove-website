@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "lint": "./node_modules/.bin/eslint bin middleware routes; exit 0",
-    "fix": "./node_modules/.bin/eslint --fix bin middleware routes; exit 0"
+    "lint": "./node_modules/.bin/eslint bin middleware routes tasks; exit 0",
+    "fix": "./node_modules/.bin/eslint --fix bin middleware routes tasks; exit 0",
+    "updateImages": "node tasks/updateImages"
   },
   "dependencies": {
     "airtable": "^0.4.3",
