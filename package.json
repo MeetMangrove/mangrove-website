@@ -6,7 +6,8 @@
     "start": "nodemon ./bin/www",
     "lint": "./node_modules/.bin/eslint bin middleware routes tasks; exit 0",
     "fix": "./node_modules/.bin/eslint --fix bin middleware routes tasks; exit 0",
-    "updateImages": "node tasks/updateImages"
+    "updateImages": "node tasks/updateImages",
+    "web": "node  ./bin/www"
   },
   "dependencies": {
     "airtable": "^0.4.3",
