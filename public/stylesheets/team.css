@@ -163,7 +163,12 @@
   display: inline-block;
   color:#FF6F95;
   border-color: #FF6F95;
+}
 
+.team .track-5{
+  display: inline-block;
+  color:#9B59B6;
+  border-color: #9B59B6;
 }
 
 .team .clear-member{
