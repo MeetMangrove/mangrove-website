@@ -19,20 +19,24 @@ block content
 								if mb.newbie
 									.member-ico 🌱
 								.member-points
-									if mb.points > 400
-										| +400
+									if mb.points > 500
+										| 500+
+									else if mb.points > 400
+										| 400+
+									else if mb.points > 300
+										| 300+
 									else if mb.points > 200
-										| +200
+										| 200+
 									else if mb.points > 100
-										| +100
+										| 100+
 									else if mb.points > 50
-										| +50
+										| 50+
 									else if mb.points > 25
-										| +25
+										| 25+
 									else if mb.points > 10
-										| +10
+										| 10+
 									else if mb.points > 5
-										| +5
+										| 5+
 									else
 										| #{mb.points}
 									a(href="http://playbook.mangrove.io/how/contribution/#recording-your-contribution-contribution-points-cp-", target="_blank")  cp
