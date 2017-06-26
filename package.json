@@ -3,14 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www --exec babel-node",
     "lint": "./node_modules/.bin/eslint bin middleware routes tasks; exit 0",
     "fix": "./node_modules/.bin/eslint --fix bin middleware routes tasks; exit 0",
     "updateImages": "node tasks/updateImages",
     "web": "node  ./bin/www"
   },
   "dependencies": {
+    "@google/maps": "^0.4.1",
     "airtable": "^0.4.3",
+    "async-foreach": "^0.1.3",
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "bluebird": "^3.5.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",

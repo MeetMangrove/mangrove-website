@@ -2,8 +2,8 @@ var airtable = require('./airtable.js')
 
 function getPeople () {
   return new Promise(function (resolve, reject) {
-    var members = []
-    var friends = []
+
+    var members = [], friends = [], adresses = [];
 
     airtable.members.select({
       // filterByFormula: "{Status} = 'Cofounder'",
@@ -14,27 +14,26 @@ function getPeople () {
         } else if (record.get('Status') === 'Friend') {
           friends.push(record)
         }
+        adresses.push(record.get('Postal Adress'))
       })
-
       fetchNextPage()
     }, function done (err) {
       if (err) {
         reject(err)
         return
       }
-
+  
       members = sortMembers(members)
       members = formatMembers(members)
-      console.log(members)
-
       friends = formatFriends(friends)
-      console.log(friends)
+
       console.log('=> Retrieved ' + members.length + ' members.')
       console.log('=> Retrieved ' + friends.length + ' friends.')
 
       resolve({
         members: members,
-        friends: friends
+        friends: friends,
+        adresses: adresses
       })
     })
   })

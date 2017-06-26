@@ -1,6 +1,9 @@
 var express = require('express')
 var wording = require('../middleware/wording.js')
 var people = require('../middleware/people.js')
+
+import { formatAddress } from '../middleware/map'
+
 var router = express.Router()
 
 router.use(wording)
@@ -17,7 +20,15 @@ router.get('/:name?', function (req, res, next) {
           var result = req.wording
           result.friends = persons.friends
           result.members = persons.members
-          res.render(name, result)
+          formatAddress(persons.adresses)
+            .then(
+              function (hop) {
+                result.hop = hop
+                res.render(name, result)
+              },
+              function (err) {
+                next(err)
+              })
         },
         function (err) {
           next(err)
