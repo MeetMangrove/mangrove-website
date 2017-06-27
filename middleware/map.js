@@ -21,14 +21,20 @@ const callMapsAPI = (address) => {
 
 export const formatAddress = (addresses) => {
   return new Promise(function (resolve, reject) {
-    forEach (addresses, async function(addresse) {
-  	  var done = this.async()
-      var result = await callMapsAPI(addresse)
-      console.log(result)
+    let adresssCoordinates = [];
+    forEach ([addresses[3]], async function(addresse) {
+      const done = this.async()
+      // Check if a user have filled an address
+      if(addresse) {
+        const results = await callMapsAPI(addresse);
+        // Remove invalid adresses (length = 0) and multiple matches (length > 1)
+        if(results.length === 1) {
+          adresssCoordinates.push(results[0].geometry.location)
+        }
+      }
   	  done()
     }, function() {
-      console.log("done");
-      resolve()
+      resolve(adresssCoordinates)
     });
 
   })

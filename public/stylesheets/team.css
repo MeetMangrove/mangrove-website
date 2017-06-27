@@ -1,4 +1,8 @@
-.explanation{
+#map-container {
+  height: 700px;
+}
+
+.explanation {
   margin: 0em 10%;
 }
 

@@ -22,8 +22,9 @@ router.get('/:name?', function (req, res, next) {
           result.members = persons.members
           formatAddress(persons.adresses)
             .then(
-              function (hop) {
-                result.hop = hop
+              function (coords) {
+                console.log(coords)
+                result.coords = coords
                 res.render(name, result)
               },
               function (err) {
