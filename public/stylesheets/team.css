@@ -1,5 +1,5 @@
 #map-container {
-  height: 700px;
+  height: 300px;
 }
 
 .explanation {
@@ -191,6 +191,10 @@
   Team
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
+  
+  #map-container {
+    height: 500px;
+  }
 
   .members {
     padding-top: 120px;

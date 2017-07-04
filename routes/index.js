@@ -20,7 +20,7 @@ router.get('/:name?', function (req, res, next) {
           var result = req.wording
           result.friends = persons.friends
           result.members = persons.members
-          formatAddress(persons.adresses)
+          formatAddress(persons.locations)
             .then(
               function (coords) {
                 console.log(coords)

@@ -2,7 +2,6 @@ extends layout
 
 block content
 	.mangrove-map
-		h2 Mangrove Map
 		#map-container
 	.team.members#head(style="background-color: #f6f8fa;")
 		h2 Mangrove Builders
@@ -71,7 +70,7 @@ block content
 		ul#friends
 
 	script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
-	script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
 	script(src="scripts/team.js")
 	script(src="scripts/livemap.js")
 	script.
@@ -90,6 +89,7 @@ block content
 				elements: !{JSON.stringify(coords)},
 				mapDiv: 'map-container'
 			};
+
 			var mapSection = new window.MapSection(optionsMap);
 			mapSection.init();
 		});

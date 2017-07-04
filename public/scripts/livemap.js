@@ -102,27 +102,213 @@ window.MapSection = function (opts) {
   this.init = function() {
 
     var map = new google.maps.Map(document.getElementById(opts.mapDiv), {
-      zoom: 2,
-      center: {lat: -48.856614, lng: 2.3522}
+        zoom: 2,
+        maxZoom: 6,
+        styles: [
+            {
+                "featureType": "administrative",
+                "elementType": "labels.text",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#2c3e50"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "color": "#e42d67"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    },
+                    {
+                        "saturation": "-100"
+                    },
+                    {
+                        "lightness": "100"
+                    },
+                    {
+                        "color": "#ffffff"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "visibility": "on"
+                    },
+                    {
+                        "color": "#ff512f"
+                    },
+                    {
+                        "lightness": "56"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#2c3e50"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "color": "#e42d67"
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "color": "#f2f2f2"
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#ffffff"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    },
+                    {
+                        "color": "#e5eff5"
+                    }
+                ]
+            }
+        ],
+        center: {lat: 32.57710, lng: 9.8196},
+        scrollwheel: false
     });
 
-    // Create an array of alphabetical characters used to label the markers.
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    // Add some markers to the map.
-    // Note: The code uses the JavaScript Array.prototype.map() method to
-    // create an array of markers based on a given "locations" array.
-    // The map() method here has nothing to do with the Google Maps API.
     var markers = this.locations.map(function(location, i) {
       return new google.maps.Marker({
         position: location,
-        label: labels[i % labels.length]
+        map: map,
+        icon: '../images/pin.png',
+        label: {text: '1', color: 'white', fontSize: "11px", fontWeight:'bold'}
       });
     });
 
-    // Add a marker clusterer to manage the markers.
-    var markerCluster = new MarkerClusterer(map, markers,
-        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    var clusterStyles = [
+      {
+        textColor: 'white',
+        url: '../images/pin.png',
+        height: 32,
+        width: 32
+      },
+     {
+        textColor: 'white',
+        url: '../images/pin.png',
+        height: 32,
+        width: 32
+      },
+     {
+        textColor: 'white',
+        url: '../images/pin.png',
+        height: 32,
+        width: 32
+      }
+    ];
+
+    var markerCluster = new MarkerClusterer(map, markers, {
+        styles: clusterStyles
+    });
+
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        var z = map.getZoom();
+        //console.log(map.getCenter().lat() + "----" + map.getCenter().lng());
+    });
   }
-      
 }

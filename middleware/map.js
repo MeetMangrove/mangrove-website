@@ -19,22 +19,22 @@ const callMapsAPI = (address) => {
   })
 }
 
-export const formatAddress = (addresses) => {
+export const formatAddress = (locations) => {
   return new Promise(function (resolve, reject) {
-    let adresssCoordinates = [];
-    forEach ([addresses[3]], async function(addresse) {
+    let coordinates = [];
+    forEach ([locations[3]], async function(location) {
       const done = this.async()
       // Check if a user have filled an address
-      if(addresse) {
-        const results = await callMapsAPI(addresse);
-        // Remove invalid adresses (length = 0) and multiple matches (length > 1)
+      if(location) {
+        const results = await callMapsAPI(location);
+        // Remove invalid adresses
         if(results.length === 1) {
-          adresssCoordinates.push(results[0].geometry.location)
+          coordinates.push(results[0].geometry.location)
         }
       }
   	  done()
     }, function() {
-      resolve(adresssCoordinates)
+      resolve(coordinates)
     });
 
   })
