@@ -11,7 +11,7 @@ const gmaps = Gmaps.createClient({
 })
 
 const callMapsAPI = (address) => {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     gmaps.geocode({address}, function(err, response) {
       if (err) return reject(err)
       resolve(response.json.results)
@@ -20,9 +20,9 @@ const callMapsAPI = (address) => {
 }
 
 export const formatAddress = (locations) => {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     let coordinates = [];
-    forEach ([locations[3]], async function(location) {
+    forEach (locations, async function(location) {
       const done = this.async()
       // Check if a user have filled an address
       if(location) {
@@ -39,4 +39,3 @@ export const formatAddress = (locations) => {
 
   })
 }
-

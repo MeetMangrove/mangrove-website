@@ -7,6 +7,7 @@
     "lint": "./node_modules/.bin/eslint bin middleware routes tasks; exit 0",
     "fix": "./node_modules/.bin/eslint --fix bin middleware routes tasks; exit 0",
     "updateImages": "node tasks/updateImages",
+    "updateLocations": "node_modules/babel-cli/bin/babel-node.js tasks/updateLocations.js",
     "web": "node  ./bin/www"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "googleapis": "^14.1.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
+    "redis": "^2.7.1",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {

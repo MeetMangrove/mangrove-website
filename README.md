@@ -17,6 +17,7 @@ $ npm install
 AIRTABLE_API_KEY=**************
 AIRTABLE_BASE_KEY=**************
 GOOGLE_MAPS_API_KEY=**************
+REDIS_URL=***********
 ```
 To find the required credentials, login on airtable and go there: https://airtable.com/appHUSN6KmmkMAgV7/api/docs#nodejs/authentication
 

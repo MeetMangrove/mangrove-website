@@ -3,7 +3,9 @@ var airtable = require('./airtable.js')
 function getPeople () {
   return new Promise(function (resolve, reject) {
 
-    var members = [], friends = [], locations = [];
+    var members   = []
+       ,friends   = []
+       ,locations = [];
 
     airtable.members.select({
       // filterByFormula: "{Status} = 'Cofounder'",
@@ -77,7 +79,7 @@ function formatMembers (records) {
       image: img,
       dateOfArrival: formatArrivalDate(dateOfArrival),
       points: record.get('Points'),
-      currentCity: record.get('Current Locations'),
+      currentCity: record.get('Current Location'),
       tracks: record.get('Tracks') ? record.get('Tracks') : [],
       fire: (i < 3),
       newbie: (dateOfArrival > threeMonthAgo)
