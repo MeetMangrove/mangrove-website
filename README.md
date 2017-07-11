@@ -49,3 +49,9 @@ $ npm run web
 ```bash
 $ npm run updateImages
 ```
+
+### Update locations
+This script is automatically ran daily
+```bash
+$ npm run updateLocations
+```
