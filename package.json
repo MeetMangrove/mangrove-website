@@ -28,7 +28,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "redis": "^2.7.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "eslint": "3.19.0",
@@ -36,7 +37,6 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-node": "4.2.2",
     "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-standard": "3.0.1",
-    "nodemon": "^1.11.0"
+    "eslint-plugin-standard": "3.0.1"
   }
 }
