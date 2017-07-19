@@ -104,7 +104,7 @@ window.MapSection = function (opts) {
 
     var map = new google.maps.Map(document.getElementById(opts.mapDiv), {
         zoom: 2,
-        maxZoom: 6,
+        maxZoom: 4,
         styles: [
             {
                 "featureType": "administrative",
