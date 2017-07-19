@@ -1,4 +1,8 @@
-.explanation{
+#map-container {
+  height: 300px;
+}
+
+.explanation {
   margin: 0em 10%;
 }
 
@@ -187,6 +191,10 @@
   Team
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
+  
+  #map-container {
+    height: 500px;
+  }
 
   .members {
     padding-top: 120px;

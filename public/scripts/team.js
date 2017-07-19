@@ -50,7 +50,6 @@ window.FriendsSection = function (opts) {
     window.setInterval(function () {
       this.swapFriend(nextFriendIndex)
       nextFriendIndex = ++nextFriendIndex % this.friends.length
-      console.log(nextFriendIndex)
     }.bind(this), this.timeout)
   }
 }
