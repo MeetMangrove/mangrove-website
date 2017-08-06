@@ -13,21 +13,21 @@ Header
   /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #FF512F, #DD2476);
   background: linear-gradient(to left, #FF512F, #DD2476);
-
   text-align: center;
   position: relative;
-  height: 52vh;
+  height: auto;
   top: 0;
+  padding: 50px 7px;
 }
 
 h1 {
-  bottom: 32px;
+  bottom: 0;
   color: #fff;
   text-align: center;
   font-weight: 500;
   letter-spacing: 0.02em;
-  position: absolute;
-  right: 0
+  position: relative;
+  right: 0;
   left: 0;
   margin: 0;
   padding: 0;
@@ -49,6 +49,9 @@ h1 {
   }
 }
 
+.catchphrase {
+  padding-top: 20px;
+}
 
 .bottom-arrow {
   display: none;
@@ -62,10 +65,10 @@ h1 {
   animation:         move-arrow 1s infinite;
 }
 
-  .bottom-arrow svg {
-    padding: 24px;
-    cursor: pointer;
-  }
+.bottom-arrow svg {
+  padding: 24px;
+  cursor: pointer;
+}
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,43 +76,45 @@ Menu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 .menu {
-  position: absolute;
+  position: relative;
   top: 0;
   text-align: center;
   width: 100%;
   line-height: 42px;
 }
 
-  .menu ul {
-    padding: 0; margin: 0;
-    list-style: none;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    margin-top: 32px;
-  }
+.menu ul {
+  padding: 0; 
+  margin: 0;
+  list-style: none;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
 
-  .menu .logo {
-    text-align: center;
-    margin-top: 50px;
-  }
+.menu li {
+  display: inline-block;
+  margin: 0 15px;
+}
 
-  .menu .logo img{
-    width: 66%;
-  }
+.menu .logo {
+  text-align: center;
+}
 
-  .menu li {
-  }
+.menu .logo img{
+  width: 66%;
+}
 
-  .menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-  }
 
-    .menu a:hover {
-      text-decoration: underline;
-    }
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
 
 
 /*
@@ -178,7 +183,7 @@ Footer
     top: 1px;
   }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 64em) {
 
   /*
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -191,11 +196,13 @@ Footer
     text-align: left;
     top: 0;
     height: 100vh;
+    padding: 0;
   }
 
   .header.small {
     background: #ee3b52;
     height: 70vh;
+    padding: 50px 7px;
   }
 
   h1 {
@@ -206,16 +213,24 @@ Footer
     color: #fff;
     margin: 0;
     line-height: 100vh;
-
     position: inherit;
     width: auto;
     text-align: center;
   }
+  
+  .header.small .catchphrase {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
 
-    .small h1 {
-      font-size: 45px;
-      line-height: 82vh;
-    }
+  .header.small h1 {
+    font-size: 45px;
+    line-height: inherit;
+    top: 0;
+    width: 100%;
+    position: relative;
+  }
 
   .bottom-arrow {
     display: block;
@@ -234,31 +249,32 @@ Footer
     line-height: 150px;
   }
 
-    .menu .logo {
-      float: left;
-      margin-left: 100px;
-      text-align: left;
-      margin-top: 0;
+  .menu .logo {
+    float: left;
+    margin-left: 100px;
+    text-align: left;
+    margin-top: 0;
+  }
+
+    .menu .logo img {
+      vertical-align: middle;
+      width: 39%;
+      padding-bottom: 0%;
     }
 
-      .menu .logo img {
-        vertical-align: middle;
-        width: 39%;
-        padding-bottom: 0%;
-      }
+  .menu ul {
+    position: absolute;
+    right: 50px;
+    text-align: left;;
+    width: auto;
+    margin-top: auto;
+  }
 
-    .menu ul {
-      right: 50px;
-      text-align: left;;
-      width: auto;
-      margin-top: auto;
-    }
-
-    .menu li {
-      float: left;
-      margin-right: 50px;
-      text-decoration: none;
-    }
+  .menu li {
+    float: left;
+    margin-right: 50px;
+    text-decoration: none;
+  }
 
   /*
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

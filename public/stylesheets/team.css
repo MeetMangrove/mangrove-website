@@ -3,7 +3,9 @@
 }
 
 .explanation {
-  margin: 0em 10%;
+  margin: 0 auto;
+  max-width: 800px;
+  line-height: 25px;
 }
 
 .members {
