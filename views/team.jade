@@ -1,7 +1,8 @@
 extends layout
 
 block content
-
+	.mangrove-map
+		#map-container
 	.team.members#head(style="background-color: #f6f8fa;")
 		h2 Mangrove Builders
 		p.explanation Mangrove builders are the core of the ecosystem. They are in charge of designing the organizational framework, maintaining the vision and developing the community through ambitious projects.
@@ -19,20 +20,24 @@ block content
 								if mb.newbie
 									.member-ico 🌱
 								.member-points
-									if mb.points > 400
-										| +400
+									if mb.points > 500
+										| 500+
+									else if mb.points > 400
+										| 400+
+									else if mb.points > 300
+										| 300+
 									else if mb.points > 200
-										| +200
+										| 200+
 									else if mb.points > 100
-										| +100
+										| 100+
 									else if mb.points > 50
-										| +50
+										| 50+
 									else if mb.points > 25
-										| +25
+										| 25+
 									else if mb.points > 10
-										| +10
+										| 10+
 									else if mb.points > 5
-										| +5
+										| 5+
 									else
 										| #{mb.points}
 									a(href="http://playbook.mangrove.io/how/contribution/#recording-your-contribution-contribution-points-cp-", target="_blank")  cp
@@ -55,21 +60,36 @@ block content
 										when 'Messenger'
 											.track-4
 												.member-track #{track}
+										when 'Connector'
+											.track-5
+												.member-track #{track}
 		div(style="clear:both;")
 	.team
 		h2 Mangrove Friends
 		p.explanation They believe in our vision. We believe in what they do.
 		ul#friends
 
+	script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
 	script(src="scripts/team.js")
+	script(src="scripts/livemap.js")
 	script.
 		$(function() {
-			var options = {
+			// Friend section
+			var optionsFriends = {
 				elements: !{JSON.stringify(friends)},
 				amountToShow: 20,
 				timeout: 3500,
 				friendsDiv: '#friends'
 			};
-			var friendSection = new window.FriendsSection(options);
+			var friendSection = new window.FriendsSection(optionsFriends);
 			friendSection.init();
+			// Map section
+			var optionsMap = {
+				elements: !{JSON.stringify(coords)},
+				mapDiv: 'map-container'
+			};
+
+			var mapSection = new window.MapSection(optionsMap);
+			mapSection.init();
 		});
