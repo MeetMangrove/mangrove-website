@@ -69,15 +69,15 @@ section .content p {
     width: 100%;
   }
 
-    section .content .text {
-      max-width: 500px;
-    }
-
-  section:nth-child(odd) .content .text {
-    float: left;
+  section .content .text {
+    max-width: 500px;
   }
 
   section:nth-child(even) .content .text {
+    float: left;
+  }
+
+  section:nth-child(odd) .content .text {
     float: right;
   }
 }

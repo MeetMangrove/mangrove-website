@@ -127,3 +127,13 @@
     display: none;
   }
 }
+
+@media only screen and (min-width: 45em) {
+  .lifestyle section:nth-child(even) .content .text {
+    float: right;
+  }
+
+  .lifestyle section:nth-child(odd) .content .text {
+    float: left;
+  }
+}

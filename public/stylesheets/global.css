@@ -57,7 +57,7 @@ h1 {
   left: 50%;
   margin-left: -36px;
   -webkit-animation: move-arrow 1s infinite;
-  -moz-animation:    move-arrow 1s infinite
+  -moz-animation:    move-arrow 1s infinite;
   -o-animation:      move-arrow 1s infinite;
   animation:         move-arrow 1s infinite;
 }
