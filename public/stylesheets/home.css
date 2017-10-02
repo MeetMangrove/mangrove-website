@@ -73,11 +73,11 @@ section .content p {
     max-width: 500px;
   }
 
-  section:nth-child(even) .content .text {
+  section:nth-of-type(odd) .content .text {
     float: left;
   }
 
-  section:nth-child(odd) .content .text {
+  section:nth-of-type(even) .content .text {
     float: right;
   }
 }
