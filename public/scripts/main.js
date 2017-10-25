@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  $('.bottom-arrow').click(function() {
-    $(window).scrollTo($("#head"), 500);
-  });
-});
+$(document).ready(function () {
+  $('.bottom-arrow').click(function () {
+    $(window).scrollTo($('#head'), 500)
+  })
+})

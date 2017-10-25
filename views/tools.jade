@@ -7,7 +7,7 @@ block content
         .content
           .text
             h2=section.title
-            p=section.text
+            p !{section.text}
           .image
             img(src="images/community_#{key}.png")
         div(style="clear:both;")

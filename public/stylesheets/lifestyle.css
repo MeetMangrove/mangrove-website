@@ -20,6 +20,7 @@
 .lifestyle .image img {
   display: block;
   max-width: 100%;
+  max-height: 75vh;
 }
 
 .lifestyle section {
@@ -36,7 +37,7 @@
 
   section.playbook {
     background-size: 21%;
-    background-position: right 23% center;
+    background-position: left 23% center;
     background-repeat: no-repeat;
     background-image: url(../images/mangroveplaybook.png);
     background-color: #fff;
@@ -124,5 +125,15 @@
 @media (max-width:1200px) and (min-width:45em) {
   .lifestyle .image img {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 45em) {
+  .lifestyle section:nth-child(even) .content .text {
+    float: right;
+  }
+
+  .lifestyle section:nth-child(odd) .content .text {
+    float: left;
   }
 }

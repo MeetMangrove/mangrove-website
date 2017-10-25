@@ -20,7 +20,7 @@ h2 {
   margin: 0;
 }
 
-section .content a {
+section .content a{
   display: inline-block;
   padding: 12px 20px;
   border-radius: 3px;
@@ -29,7 +29,7 @@ section .content a {
   color: #5b5b5b;
 }
 
-section .content a:hover {
+section .content a:hover{
   background-color: #5b5b5b;
   color: #fff;
 }
@@ -62,22 +62,22 @@ section .content p {
     padding: 0 100px;
     background-size: 100% auto;
     background-position: center center;
-    height: 100vh;
+    height: 80vh;
   }
 
   section .content {
     width: 100%;
   }
 
-    section .content .text {
-      max-width: 500px;
-    }
+  section .content .text {
+    max-width: 500px;
+  }
 
-  section:nth-child(odd) .content .text {
+  section:nth-of-type(odd) .content .text {
     float: left;
   }
 
-  section:nth-child(even) .content .text {
+  section:nth-of-type(even) .content .text {
     float: right;
   }
 }

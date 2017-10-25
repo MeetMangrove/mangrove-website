@@ -1,138 +1,111 @@
-var google = require('googleapis')
-var auth = require('./auth.js')
+var airtable = require('./airtable.js')
 
-/**
-Get people from the Mangrove Friends spreadsheet
-*/
-function getPeople() {
-	return new Promise(function (resolve, reject) {
-		// Make auth
-		auth.authorize(function (err, tokens) {
-			// Auth error
-			if (err) {
-				reject(err)
-				return
-			}
+function getPeople () {
+  return new Promise(function (resolve, reject) {
 
-			var sheets = google.sheets('v4')
-			sheets.spreadsheets.values.get({
-				auth: auth,
-				spreadsheetId: '1ksK3vR4XF60SnegkSAjV3Q8SYHh-dgGUJDA4Y9RTBRE',
-				range: 'WebsiteV2!A2:E'
-			}, function(err, response) {
-				// Error handler
-				if (err) {
-					reject(err)
-					return
-				}
+    var members   = []
+       ,friends   = []
+       ,locations = [];
 
-				// Fill with generic infos
-				var rows = response.values
-				var result = peopleFilledWithGenericInfos(rows)
+    airtable.members.select({
+      // filterByFormula: "{Status} = 'Cofounder'",
+    }).eachPage(function page (records, fetchNextPage) {
+      records.forEach(function (record) {
+        if (record.get('Status') === 'Cofounder') {
+          members.push(record)
+        } else if (record.get('Status') === 'Friend') {
+          friends.push(record)
+        }
+        locations.push(record.get('Current Location'))
+      })
+      fetchNextPage()
+    }, function done (err) {
+      if (err) {
+        reject(err)
+        return
+      }
+  
+      members = sortMembers(members)
+      members = formatMembers(members)
+      friends = formatFriends(friends)
 
-				// Fill with points
-				getPoints().
-					then(
-						function (points) {
-							result = appendPointsToPeople(result, points)
-							resolve(result)
-						},
-						function (err) {
-							reject(err)
-						}
-					)
-			})
-		})
-	})
+      console.log('=> Retrieved ' + members.length + ' members.')
+      console.log('=> Retrieved ' + friends.length + ' friends.')
+
+      resolve({
+        members: members,
+        friends: friends,
+        locations: locations
+      })
+    })
+  })
 }
 
-/**
-Create arrays of members and friends with infos found in the Mangrove Friends spreadsheet
-*/
-function peopleFilledWithGenericInfos(rows) {
-	var friends = []
-	var members = []
-	for (var i = 0; i < rows.length; i++) {
-		var row = rows[i]
-		if (row.length !== 0) {
-			var tw = row[2] && row[2].length ? row[2] : null;
-			var img = tw ? "//avatars.io/twitter/"+tw.toLowerCase()+"/large" : row[3];
-			var person = {
-				first_name: row[0],
-				last_name: row[1],
-				twitter: tw,
-				image: img
-			}
-			if (row[4] == 1) { // member
-				members.push(person)
-			} else if (row[4] == 0) { // friend
-				friends.push(person)
-			}
-		}
-	}
-	return {
-		friends: friends,
-		members: members
-	}
+function formatFriends (records) {
+  var friends = []
+
+  for (var i = 0; i < records.length; i++) {
+    var record = records[i]
+    var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
+    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
+    var person = {
+      name: record.get('Name'),
+      twitter: tw,
+      image: img
+    }
+
+    friends.push(person)
+  }
+
+  return friends
 }
 
-/**
-Get contributions points from the contributions points spreadsheet
-*/
-function getPoints() {
-	return new Promise(function (resolve, reject) {
-		// Make auth
-		auth.authorize(function (err, tokens) {
-			// Auth error
-			if (err) {
-				reject(err)
-				return
-			}
+function formatMembers (records) {
+  var members = []
 
-			var sheets = google.sheets('v4')
-			sheets.spreadsheets.values.get({
-				auth: auth,
-				spreadsheetId: '1R62yph7F8kuhE5YFW0f31Nb5eSCXHX1KBED-recRbVk',
-				range: 'total!A2:B'
-			}, function(err, response) {
-				// Error handler
-				if (err) {
-					reject(err)
-					return
-				}
+  var threeMonthAgo = new Date()
+  threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 3)
 
-				// Return points
-				var points = response.values
-				resolve(points)
-			})
-		})
-	})
+  for (var i = 0; i < records.length; i++) {
+    var record = records[i]
+
+    var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
+    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
+    var dateOfArrival = new Date(record.get('Cofounder Since'))
+
+    var person = {
+      name: record.get('Name'),
+      twitter: tw,
+      image: img,
+      dateOfArrival: formatArrivalDate(dateOfArrival),
+      points: record.get('Points'),
+      currentCity: record.get('Current Location'),
+      tracks: record.get('Tracks') ? record.get('Tracks') : [],
+      fire: (i < 3),
+      newbie: (dateOfArrival > threeMonthAgo)
+    }
+
+    members.push(person)
+  }
+
+  return members
 }
 
-/**
-Add points to members
-*/
-function appendPointsToPeople(people, points) {
-	// Get members
-	var members = people.members
+function sortMembers (members) {
+  members.sort(function (a, b) {
+    return b.get('Last Month Points') - a.get('Last Month Points')
+  })
 
-	// Add points
-	for (var i = 0; i < members.length; i++) {
-		var member = members[i]
-		for (var j=0; j < points.length; j++) {
-			var point = points[j]
-			var firstName = point[0]
-			if (member.first_name == firstName) {
-				members[i].points = point[1]
-			}
-		}
-	}
+  return members
+}
 
-	// Return people
-	people.members = members
-	return people
+function formatArrivalDate (date) {
+  var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December']
+
+  return 'since ' + monthNames[date.getMonth()] + ' ' + date.getFullYear()
 }
 
 module.exports = {
-	get: getPeople
+  get: getPeople
 }

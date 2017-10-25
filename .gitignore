@@ -38,3 +38,11 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# API keys and secrets
+.env
+
+# Editors
+.idea
+
+yarn.lock

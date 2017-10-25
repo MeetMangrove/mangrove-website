@@ -3,9 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www --exec babel-node",
+    "lint": "./node_modules/.bin/eslint bin middleware routes tasks; exit 0",
+    "fix": "./node_modules/.bin/eslint --fix bin middleware routes tasks; exit 0",
+    "updateImages": "node tasks/updateImages",
+    "updateLocations": "node_modules/babel-cli/bin/babel-node.js tasks/updateLocations.js",
+    "web": "nodemon ./bin/www --exec babel-node"
   },
   "dependencies": {
+    "@google/maps": "^0.4.1",
+    "airtable": "^0.4.3",
+    "async-foreach": "^0.1.3",
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "bluebird": "^3.5.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",
@@ -15,8 +28,18 @@
     "googleapis": "^14.1.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
+    "nodemon": "^1.11.0",
     "passport": "^0.4.0",
     "passport-slack": "0.0.7",
+    "redis": "^2.7.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-node": "4.2.2",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1"
   }
 }

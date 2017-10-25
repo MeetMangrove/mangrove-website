@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  each section,key in sections
+    section(class="lifestyle" style="background-image:url(images/p#{key}.png)")
+      .content
+        .text
+          .textwlinks
+            h2=section.title
+            p!=section.text
+      div(style="clear:both;")
+  include newsletter.jade

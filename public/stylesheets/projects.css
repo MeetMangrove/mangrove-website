@@ -1,0 +1,13 @@
+section .content .textwlinks a{
+  display: inline-block;
+  padding: 0px;
+  border: none;
+  color: #5b5b5b;
+  text-decoration: underline;
+}
+
+section .content .textwlinks a:hover{
+  background-color: none;
+  border: none;
+  color: white;
+}
