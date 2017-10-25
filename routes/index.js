@@ -9,6 +9,10 @@ router.get('/:name?', function(req, res, next) {
 	name = name ? name : 'index'
 
 	if (name === 'team') {
+    if (req.session.user) {
+      // private Team page, for members only
+      return res.render('team_private')
+    }
 		// Append people
 		people.get().
 			then(

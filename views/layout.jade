@@ -48,6 +48,10 @@ html.no-js(lang="")
               li: a(href='/lifestyle') Lifestyle
               li: a(href='/community') Community
               li: a(href='/team') Team
+              if session.user
+                li: a(href='/logout') Sign out
+              else
+                li: a(href='/login') Sign in
           .catchphrase
             h1=catchphrase
           .bottom-arrow
@@ -78,4 +82,3 @@ html.no-js(lang="")
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-87631128-1', 'auto');ga('send', 'pageview');
-
