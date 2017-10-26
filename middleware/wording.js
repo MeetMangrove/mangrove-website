@@ -14,23 +14,19 @@ var pages = {
     ranges: ['Main!A2:E', 'Home!A2:D'],
     index: 0
   },
-  values: {
+  about: {
     ranges: ['Main!A2:E', 'Values!A2:E'],
     index: 1
   },
-  gatherings: {
+  lifestyle: {
     ranges: ['Main!A2:E', 'Community!A2:C'],
     index: 2
-  },
-  tools: {
-    ranges: ['Main!A2:E', 'Tools!A2:C'],
-    index: 3
   },
   team: {
     ranges: ['Main!A2:E'],
     index: 4
   },
-  projects: {
+  'mutual-help': {
     ranges: ['Main!A2:E', 'Projects!A2:B'],
     index: 5
   }
@@ -98,7 +94,7 @@ function getWording (name) {
                 wording.sections.push(section)
               }
               break
-            case 'values': // Values
+            case 'about': // Values
               var row = rows[0]
               var section = {
                 title: row[0],
@@ -109,7 +105,7 @@ function getWording (name) {
               wording.section = section
               wording.manifesto = row[4]
               break
-            case 'gatherings': // Community
+            case 'lifestyle': // Community
               wording.sections = []
               for (var j = 0; j < rows.length; j++) {
                 var row = rows[j]
@@ -121,19 +117,7 @@ function getWording (name) {
                 wording.sections.push(section)
               }
               break
-            case 'tools': // Tools
-              wording.sections = []
-              for (var j = 0; j < rows.length; j++) {
-                var row = rows[j]
-                var section = {
-                  title: row[0],
-                  text: row[1],
-                  image_detail: row[2]
-                }
-                wording.sections.push(section)
-              }
-              break
-            case 'projects': // Projects
+            case 'mutual-help': // Projects
               wording.sections = []
               for (var j = 0; j < rows.length; j++) {
                 var row = rows[j]

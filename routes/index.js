@@ -43,7 +43,7 @@ router.get('/:name?', function (req, res, next) {
         })
   } else {
     // Just render using wording
-    res.render(name, req.wording)
+    res.render(name.replace(/\W/g, '_'), req.wording)
   }
 })
 

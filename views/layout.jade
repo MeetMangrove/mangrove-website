@@ -43,19 +43,7 @@ html.no-js(lang="")
 
         if name == 'home'
           .header
-            .menu
-              .logo
-                a(href='/'): img(src="images/logo.png")
-              ul
-                li: a(href='/values') Values
-                li: a(href='/gatherings') Gatherings
-                li: a(href='/projects') Projects
-                li: a(href='/tools') Tools
-                li: a(href='/team') Team
-                if session.user
-                  li: a(href='/logout') Sign out
-                else
-                  li: a(href='/login') Sign in
+            include _layout_header_menu
             .catchphrase
               h1=catchphrase
             .bottom-arrow
@@ -64,19 +52,7 @@ html.no-js(lang="")
                 polyline#Path-72-Copy(stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="26 31 36 41 46 31")
         else
           .header.small
-            .menu
-              .logo
-                a(href='/'): img(src="images/logo.png")
-              ul
-                li: a(href='/values') Values
-                li: a(href='/gatherings') Gatherings
-                li: a(href='/projects') Projects
-                li: a(href='/tools') Tools
-                li: a(href='/team') Team
-                if session.user
-                  li: a(href='/logout') Sign out
-                else
-                  li: a(href='/login') Sign in
+            include _layout_header_menu
             .catchphrase
               h1=catchphrase
 
