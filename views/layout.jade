@@ -52,6 +52,10 @@ html.no-js(lang="")
                 li: a(href='/projects') Projects
                 li: a(href='/tools') Tools
                 li: a(href='/team') Team
+                if session.user
+                  li: a(href='/logout') Sign out
+                else
+                  li: a(href='/login') Sign in
             .catchphrase
               h1=catchphrase
             .bottom-arrow
@@ -69,6 +73,10 @@ html.no-js(lang="")
                 li: a(href='/projects') Projects
                 li: a(href='/tools') Tools
                 li: a(href='/team') Team
+                if session.user
+                  li: a(href='/logout') Sign out
+                else
+                  li: a(href='/login') Sign in
             .catchphrase
               h1=catchphrase
 
