@@ -1,8 +1,22 @@
 extends layout
 
 block content
+    <iframe class="airtable-embed" src="https://airtable.com/embed/shrdV73su7MGjffEN?backgroundColor=red&viewControls=off" frameborder="0" onmousewheel="" width="100%" height="1630" style="background: transparent; border: 1px solid #ccc;"></iframe>
+    .mangrove-map
+      #map-container
 
-  .team.members#head
-    h2 Private Team page
-    p.explanation Only accessible if you are logged in
-    <iframe class="airtable-embed" src="https://airtable.com/embed/shrdV73su7MGjffEN?backgroundColor=red&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+    script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
+    script(src="scripts/team.js")
+    script(src="scripts/livemap.js")
+    script.
+      $(function() {
+        // Map section
+        var optionsMap = {
+          elements: !{JSON.stringify(coords)},
+          mapDiv: 'map-container'
+        };
+
+        var mapSection = new window.MapSection(optionsMap);
+        mapSection.init();
+      });
