@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieSession({
   name: 'mangrove-website',
   keys: [constants.SECRET],
-  maxAge: 24 * 3600 * 1000 // 24 hours
+  maxAge: 30 * 24 * 3600 * 1000 // 30 days
 }))
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -48,7 +48,7 @@ app.get('/auth/slack/callback',
   function(req, res, next) {
     if (req.account) {
       // check that the user signed in with one of our Slack teams
-      if (constants.SLACK_TEAM_NAMES.indexOf(req.account.team.name) >= 0) {
+      if (constants.SLACK_TEAM_IDS.indexOf(req.account.team.id) >= 0) {
         // user is signed in - save to session
         req.session.user = req.account.user
         req.session.team = req.account.team
