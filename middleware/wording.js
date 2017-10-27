@@ -15,11 +15,11 @@ var pages = {
     index: 0
   },
   about: {
-    ranges: ['Main!A2:E', 'Values!A2:E'],
+    ranges: ['Main!A2:E', 'About!A2:E'],
     index: 1
   },
   lifestyle: {
-    ranges: ['Main!A2:E', 'Community!A2:C'],
+    ranges: ['Main!A2:E', 'Lifestyle!A2:C'],
     index: 2
   },
   team: {
@@ -27,7 +27,7 @@ var pages = {
     index: 4
   },
   'mutual-help': {
-    ranges: ['Main!A2:E', 'Projects!A2:B'],
+    ranges: ['Main!A2:E', 'MutualHelp!A2:B'],
     index: 5
   }
 }
