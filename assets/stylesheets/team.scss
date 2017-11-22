@@ -1,0 +1,9 @@
+/* map with members' locations */
+
+#map-container {
+  height: 300px;
+
+  @media only screen and (min-width: 35em) {
+    height: 500px;
+  }
+}
