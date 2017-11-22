@@ -1,0 +1,8 @@
+//- Creates an `a` element with target="_blank" when the href is absolute,
+//- and no target when it is relative
+mixin a_blank_when_absolute()
+  //- links beginning with "//" or "xxx://" are considered absolute
+  - if (!attributes.target && /^\w*\:?\/\//i.test(attributes.href))
+    - attributes.target = '_blank'
+  a&attributes(attributes)
+    block
