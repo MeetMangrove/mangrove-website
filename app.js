@@ -32,7 +32,7 @@ app.use(cookieSession({
 app.use(sassMiddleware({
   src: constants.ASSETS_DIR,
   dest: constants.TEMP_DIR,
-  debug: true,
+  debug: (app.get('env') === 'development'),
   outputStyle: (app.get('env') === 'development' ? 'extended' : 'compressed'),
   prefix: '/', // prefix for asset URLs <link rel=":prefix/asset.css">
   log: function (severity, key, value) {
