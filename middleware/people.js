@@ -11,9 +11,10 @@ function getPeople () {
       // filterByFormula: "{Status} = 'Cofounder'",
     }).eachPage(function page (records, fetchNextPage) {
       records.forEach(function (record) {
-        if (record.get('Status') === 'Cofounder') {
+        var status = record.get('Status')
+        if (status === 'Builder' || status === 'Resident' || status === 'Veteran') {
           members.push(record)
-        } else if (record.get('Status') === 'Friend') {
+        } else if (status === 'Friend' || status === 'Guest') {
           friends.push(record)
         }
         locations.push(record.get('Current Location'))
@@ -24,7 +25,7 @@ function getPeople () {
         reject(err)
         return
       }
-  
+
       members = sortMembers(members)
       members = formatMembers(members)
       friends = formatFriends(friends)
