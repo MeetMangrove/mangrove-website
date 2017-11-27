@@ -1,9 +1,35 @@
-extends layout
+extends layout_v2
 
 block content
-  .mangrove-members
-    each member in members
-      li=member.name
+  .container
+    .headline
+      h1
+        = "Our global team"
+      .headline-tagline
+        = "32 mangrovers from 3 different countries"
+
+    .members
+      each member in members
+        .member-item-container
+          .member-item
+            .member-item-avatar
+              .member-item-avatar-image(style="background-image:url("+ member.image + ")")
+            .member-item-infos
+              .member-item-name
+                = member.name
+              .member-item-handle
+                = "@" + member.twitter
+
+    .footer-cta
+      div
+        h2
+          = "We keep expanding"
+        .tagline
+          = "Bushwick meh Blue Bottle."
+      a.button.big(href="https://mangrove.typeform.com/to/uxvnIV" target="blank")
+        = 'Join us'
+
+
 
   .mangrove-map
     #map-container

@@ -1,0 +1,15 @@
+.headline {
+  padding: $spacing * 6 0;
+  h1 {
+    color: $text_color;
+    font-weight: 300;
+    font-size: 3em;
+  }
+
+  &-tagline {
+    text-align: center;
+    margin-top: $spacing * 1.5;
+    opacity: .5;
+    font-size: 1.4em;
+  }
+}

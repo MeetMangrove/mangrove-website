@@ -1,0 +1,61 @@
+.navbar {
+  padding: $spacing * 4;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  @media (max-width: 700px) {
+    display: block;
+
+    li a {
+      margin-bottom: $spacing;
+    }
+  }
+
+  .logo { svg path { fill: white; } }
+
+  &-menu {
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+
+    @media (max-width: 700px) {
+      margin-top: $spacing * 2;
+      margin-left: -($spacing * 3);
+    }
+
+    li {
+      display: inline-block;
+      margin: 0;
+      margin-left: $spacing * 3;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      padding: 5px;
+      margin: -5px;
+      border-radius: $radius;
+      font-weight: 500;
+      transition: .15s ease background;
+
+      &:hover { background: rgba(black, .05) }
+    }
+  }
+
+  // team page variation
+  &.team {
+    position: relative;
+    .logo {
+      svg path { fill: $brand_color }
+    }
+
+    .navbar-menu a {
+      color: $text_color;
+    }
+  }
+}

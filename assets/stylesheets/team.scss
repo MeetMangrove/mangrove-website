@@ -1,4 +1,22 @@
-/* map with members' locations */
+$spacing: 8px;
+$brand_color: #F73B59;
+$text_color: rgba(black, .8);
+$radius: 3px;
+
+@import url('https://rsms.me/inter/inter-ui.css');
+
+body {
+  font-family: 'Inter UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@import './components/navbar';
+@import './components/member_item';
+@import './components/container';
+@import './components/headline';
+@import './components/footer_cta';
+@import './components/button';
+@import './components/mangrove_map';
 
 #map-container {
   height: 300px;
