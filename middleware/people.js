@@ -74,6 +74,7 @@ function formatMembers (records) {
     var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
     var dateOfArrival = new Date(record.get('Cofounder Since'))
 
+
     var person = {
       name: record.get('Name'),
       twitter: tw,
@@ -83,7 +84,10 @@ function formatMembers (records) {
       currentCity: record.get('Current Location'),
       tracks: record.get('Tracks') ? record.get('Tracks') : [],
       fire: (i < 3),
-      newbie: (dateOfArrival > threeMonthAgo)
+      newbie: (dateOfArrival > threeMonthAgo),
+      skills: record.get('Skills'),
+      bio: truncateText(record.get('Bio'), 100),
+      location: record.get('Location').replace(/,.*/, '')
     }
 
     members.push(person)
@@ -91,6 +95,23 @@ function formatMembers (records) {
 
   return members
 }
+
+
+function truncateText (str, length, ending) {
+  if(str) {
+    if (length == null) {
+      length = 100;
+    }
+    if (ending == null) {
+      ending = '...';
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+  }
+};
 
 function sortMembers (members) {
   members.sort(function (a, b) {

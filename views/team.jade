@@ -6,7 +6,8 @@ block content
       h1
         = "Our global team"
       .headline-tagline
-        = "32 mangrovers from 3 different countries"
+        = members.length + " mangrovers"
+
 
     .members
       each member in members
@@ -14,12 +15,14 @@ block content
           .member-item
             .member-item-avatar
               .member-item-avatar-image(style="background-image:url("+ member.image + ")")
+                //- span.member-item-city
+                //-   i(class="mdi mdi-map-marker")
+                //-   = member.location
             .member-item-infos
               .member-item-name
                 = member.name
-              .member-item-handle
-                = "@" + member.twitter
-
+              .member-item-beta
+                = member.bio
     .footer-cta
       div
         h2

@@ -1,14 +1,14 @@
 $grid-spacing: $spacing;
 .members {
-  margin: 0 -($grid-spacing);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  column-width: 200px;
+  column-gap: 15px;
+  margin: -15px;
 }
 
 .member-item-container {
   padding: $grid-spacing * 2;
-  flex: 0 0 25%;
+  display: inline-block;
+  width: 100%;
 
   &:last-child {
     margin-right: auto;
@@ -35,49 +35,65 @@ $grid-spacing: $spacing;
   margin-bottom: -($spacing * 2);
   border-radius: $radius;
 
+  &-container {
+    opacity: 0;
+    transform: translateY(20%);
+    animation: enter .3s ease-in-out forwards;
+    @for $i from 1 to 20 {
+      &:nth-child(#{$i}) { animation-delay: $i * 0.02s; }
+    }
+  }
+
 
   &:hover {
     background: rgba(black, .04);
   }
 }
 
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
 .member-item-avatar {
   position: relative;
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    border-radius: $radius;
-    left: 0;
-    right: 0;
-    background-image: linear-gradient(-180deg, rgba(255,81,47,0.30) 12%, rgba(221,36,118,0.90) 100%);
-    bottom: 0;
-  }
+}
+
+.member-item-city {
+  position: absolute;
+  color: white;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: $spacing * 2;
+  font-size: .9em;
 }
 
 .member-item-avatar-image {
   display: block;
-  min-width: 168px;
   background-size: cover;
   padding-bottom: 100%;
   border-radius: $radius;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
   position: relative;
+  background-position: center center;
 
   @media(max-width: 500px) {
     min-width: 140px;
   }
 
   &:after {
-    background: #FF512F;
     content: "";
-    border-radius: $radius;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    mix-blend-mode: color;
+    border-radius: $radius;
+    // background: linear-gradient(rgba(black, 0), rgba(black, .5))
+    box-shadow: 0px 0px 0px 0.5px rgba(black, .07);
   }
 }
 
@@ -98,8 +114,9 @@ $grid-spacing: $spacing;
   }
 }
 
-.member-item-handle {
+.member-item-beta {
   color: rgba(black, .5);
   margin-top: $spacing / 3;
+  line-height: 1.4;
   font-size: .9em;
 }
