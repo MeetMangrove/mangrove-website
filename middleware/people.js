@@ -73,21 +73,19 @@ function formatMembers (records) {
     var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
     var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
     var dateOfArrival = new Date(record.get('Cofounder Since'))
-
+    var location = record.get('Location')
 
     var person = {
       name: record.get('Name'),
       twitter: tw,
       image: img,
       dateOfArrival: formatArrivalDate(dateOfArrival),
-      points: record.get('Points'),
-      currentCity: record.get('Current Location'),
       tracks: record.get('Tracks') ? record.get('Tracks') : [],
       fire: (i < 3),
       newbie: (dateOfArrival > threeMonthAgo),
       skills: record.get('Skills'),
       bio: truncateText(record.get('Bio'), 100),
-      location: record.get('Location').replace(/,.*/, '')
+      location: (location ? location.replace(/,.*/, '') : null),
     }
 
     members.push(person)
