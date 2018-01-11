@@ -47,3 +47,6 @@ yarn.lock
 
 # temp files
 tmp
+
+# Redis dump
+*.rdb
