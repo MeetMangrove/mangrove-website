@@ -1,6 +1,7 @@
 import people from '../middleware/people'
 import {formatAddress} from '../middleware/map'
-var redis = require('redis').createClient(process.env.REDIS_URL)
+const {REDIS_URL} = require('../lib/constants')
+var redis = require('redis').createClient(REDIS_URL)
 
 var updateLocations = function() {
 	return new Promise(function (resolve, reject) {
