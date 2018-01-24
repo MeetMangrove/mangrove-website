@@ -1,12 +1,17 @@
 /* eslint-disable no-redeclare,prefer-promise-reject-errors */
 var google = require('googleapis')
 var auth = require('./auth.js')
+const { URL } = require('url');
 
 // Redis cache init
+var {REDIS_URL}  = require('../lib/constants')
+REDIS_URL        = new URL(REDIS_URL);
 var cacheManager = require('cache-manager');
-var redisStore   = require('./redis_store');
+var redisStore   = require('cache-manager-redis');
 var cache        = cacheManager.caching({
   store: redisStore,
+  host: REDIS_URL.hostname,
+  port: REDIS_URL.port,
   db: 0,
   ttl: 3600
 });
@@ -154,7 +159,7 @@ function getWording (name) {
 var wordingMiddleware = function (req, res, next) {
   var path = req.path.substring(1)
   path = (path === '') ? 'home' : path
-
+  
   // Wrap the getWording call with Redis cache
   var key = 'page_' + path;
   cache.wrap(key, function() {
