@@ -2,7 +2,8 @@ var express = require('express')
 var wording = require('../middleware/wording.js')
 var people = require('../middleware/people.js')
 var updateLocations = require('../tasks/updateLocations.js').updateLocations
-var redis = require('redis').createClient(process.env.REDIS_URL)
+const {REDIS_URL} = require('../lib/constants')
+var redis = require('redis').createClient(REDIS_URL)
 
 import { formatAddress } from '../middleware/map'
 
