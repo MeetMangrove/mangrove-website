@@ -2,12 +2,27 @@
 var google = require('googleapis')
 var auth = require('./auth.js')
 
-/* var drive = google.drive('v3')
+// Redis cache init
+var {REDIS_URL}  = require('../lib/constants')
+var cacheManager = require('cache-manager');
+var redisStore   = require('cache-manager-redis');
+var cache        = cacheManager.caching({
+  store: redisStore,
+  url: REDIS_URL,
+  db: 0,
+  ttl: 3600
+});
+var ttl = 3600; // in seconds
+
+// Google Drive File Listing
+/*
+var drive = google.drive('v3')
  drive.files.list({
  auth: auth
  }, function (err, resp) {
  console.log(err)
- }) */
+ })
+*/
 
 var pages = {
   home: {
@@ -141,16 +156,21 @@ function getWording (name) {
 var wordingMiddleware = function (req, res, next) {
   var path = req.path.substring(1)
   path = (path === '') ? 'home' : path
-  getWording(path)
-    .then(
-      function (wording) {
-        req.wording = wording
-        next()
-      },
-      function (err) {
-        next(err)
-      }
-    )
+
+  // Wrap the getWording call with Redis cache
+  var key = 'page_' + path;
+  cache.wrap(key, function() {
+    return getWording(path, res)
+  }, {ttl: ttl})
+  .then(
+    function (wording) {
+      req.wording = wording
+      next()
+    },
+    function (err) {
+      next(err)
+    }
+  )
 }
 
 module.exports = wordingMiddleware
