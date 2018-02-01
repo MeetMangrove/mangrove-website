@@ -32,40 +32,44 @@ block content
           .member-item
             .member-item-avatar
               .member-item-avatar-image(style="background-image:url("+ member.image + ")")
-                //- span.member-item-city
-                //-   i(class="mdi mdi-map-marker")
-                //-   = member.location
+                span.member-item-city
+                  i(class="mdi mdi-map-marker")
+                  = member.location
             .member-item-infos
               .member-item-name
                 = member.name
+              //- .member-item-date
+              //-   = member.dateOfArrival
+              .member-item-tracks
+                = member.tracks[0]
               .member-item-beta
                 = member.bio
-    .footer-cta
-      div
-        h2
-          = "We keep expanding"
-        .tagline
-          = "Bushwick meh Blue Bottle."
-      a.button.big(href="https://mangrove.typeform.com/to/uxvnIV" target="blank")
-        = 'Join us'
+    //- .footer-cta
+    //-   div
+      //-   h2
+      //-     = "We keep expanding"
+      //-   .tagline
+      //-     = "Bushwick meh Blue Bottle."
+      //- a.button.big(href="https://mangrove.typeform.com/to/uxvnIV" target="blank")
+      //-   = 'Join us'
 
 
 
-  .mangrove-map
-    #map-container
+  //- .mangrove-map
+  //-   #map-container
 
-  script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
-  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
+  //- script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
+  //- script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_vRgjm7TU4HjzwIPWe4XDTwH0DcEKHY")
   script(src="scripts/team.js")
-  script(src="scripts/livemap.js")
-  script.
-    $(function() {
-      // Map section
-      var optionsMap = {
-        elements: !{JSON.stringify(coords)},
-        mapDiv: 'map-container'
-      };
+  //- script(src="scripts/livemap.js")
+  //- script.
+  //-   $(function() {
+  //-     // Map section
+  //-     var optionsMap = {
+  //-       elements: !{JSON.stringify(coords)},
+  //-       mapDiv: 'map-container'
+  //-     };
 
-      var mapSection = new window.MapSection(optionsMap);
-      mapSection.init();
-    });
+  //-     var mapSection = new window.MapSection(optionsMap);
+  //-     mapSection.init();
+  //-   });
