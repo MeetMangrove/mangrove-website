@@ -328,3 +328,54 @@ Footer
     top: 1px;
   }
 }
+
+  /*
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Hellobar
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  .hellobar {
+    height: 50px;
+    width: 100%;
+    background-color: #2C3E50;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    padding: 5px;
+    bottom: 0;
+    z-index: 10;
+    position: fixed;
+  }
+  .hellobar-button {
+    color: #fff;
+    background: #ee3b52;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 1em;
+    text-decoration: none;
+  }
+  .hellobar-button:hover {
+    background: #bf1027;
+  }
+  .hellobar-clear {
+    background: #ee3b52;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    line-height: 8px;
+    padding: 5px;
+    border: none;
+    text-align: center;
+    font-size: 10px;
+    transition: all 0.4s ease-in-out;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .hellobar-clear:focus {
+    outline: none;
+  }
