@@ -7,7 +7,8 @@ block content
           = "What's up Mangrove?"
         .pre-headline-tagline
           = "Mangrovers feel happy today ⭐️ "
-          strong 4.6
+          strong
+            = moods.moods
         .pre-headline-tagline          
           = "We helped each other "
           strong 22 times
@@ -24,7 +25,6 @@ block content
         = "A global team"
       .headline-tagline
         = members.length + " mangrovers"
-
 
     .members
       each member in members

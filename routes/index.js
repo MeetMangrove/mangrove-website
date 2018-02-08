@@ -1,6 +1,7 @@
 var express = require('express')
 var wording = require('../middleware/wording.js')
 var people = require('../middleware/people.js')
+var moods = require('../middleware/moods.js')
 var updateLocations = require('../tasks/updateLocations.js').updateLocations
 var redis = require('redis').createClient(process.env.REDIS_URL)
 
@@ -19,6 +20,7 @@ router.get('/:name?', function (req, res, next) {
       // private Team page, for members only
       return res.render('team_private', req.wording)
     }
+
     // Append people
     people.get()
       .then(
@@ -35,7 +37,16 @@ router.get('/:name?', function (req, res, next) {
               result.coords = []
               updateLocations()
             }
-            res.render(name, result)
+            // Append Moods
+            moods.get()
+            .then(
+              function (moods) {
+                result.moods = moods
+                res.render(name, result)
+              },
+              function (err) {
+                next(err)
+              })
           })
         },
         function (err) {

@@ -11,5 +11,6 @@ var Airtable = require('airtable')
 var base = new Airtable({apiKey: AIRTABLE_API_KEY}).base(AIRTABLE_BASE_KEY)
 
 module.exports = {
-  members: base('Members')
+  members: base('Members'),
+  moods: base('Moods')
 }
