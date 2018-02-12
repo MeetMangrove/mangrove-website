@@ -21,14 +21,19 @@ router.get('/:name?', function (req, res, next) {
       return res.render('team_private', req.wording)
     }
 
-    // Append people
-    people.get()
+    // Chain promise
+    Promise.all([people.get(), moods.get()])
       .then(
-        function (persons) {
+        function (values) {
+          var persons = values[0]
+          var moods = values[1]
+
           var result = req.wording
           result.friends = persons.friends
           result.members = persons.members
-          redis.get('team.locations', function(err, reply) {
+          result.moods = moods
+
+          redis.get('team.locations', function (err, reply) {
             if (reply) {
               result.coords = JSON.parse(reply)
             } else {
@@ -37,20 +42,9 @@ router.get('/:name?', function (req, res, next) {
               result.coords = []
               updateLocations()
             }
-            // Append Moods
-            moods.get()
-            .then(
-              function (moods) {
-                result.moods = moods
-                res.render(name, result)
-              },
-              function (err) {
-                next(err)
-              })
+
+            res.render(name, result)
           })
-        },
-        function (err) {
-          next(err)
         })
   } else {
     // Just render using wording
