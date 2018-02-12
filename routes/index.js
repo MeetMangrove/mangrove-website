@@ -2,6 +2,7 @@ var express = require('express')
 var wording = require('../middleware/wording.js')
 var people = require('../middleware/people.js')
 var moods = require('../middleware/moods.js')
+var thanks = require('../middleware/thanks.js')
 var updateLocations = require('../tasks/updateLocations.js').updateLocations
 var redis = require('redis').createClient(process.env.REDIS_URL)
 
@@ -22,16 +23,19 @@ router.get('/:name?', function (req, res, next) {
     }
 
     // Chain promise
-    Promise.all([people.get(), moods.get()])
+    Promise.all([people.get(), moods.get(), thanks.get()])
       .then(
         function (values) {
           var persons = values[0]
           var moods = values[1]
+          var thanks = values[2]
+          console.log(thanks.thanks)
 
           var result = req.wording
           result.friends = persons.friends
           result.members = persons.members
           result.moods = moods
+          result.thanks = thanks.thanks.length
 
           redis.get('team.locations', function (err, reply) {
             if (reply) {
