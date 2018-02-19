@@ -1,13 +1,12 @@
 import Promise from 'bluebird'
 import asyncForEach from 'async-foreach'
 import Gmaps from '@google/maps'
-
-require('dotenv').config()
+const {GOOGLE_MAPS_API_KEY} = require('../lib/constants')
 
 const {forEach} = asyncForEach
 
 const gmaps = Gmaps.createClient({
-  key: process.env.GOOGLE_MAPS_API_KEY
+  key: GOOGLE_MAPS_API_KEY
 })
 
 const callMapsAPI = (address) => {
