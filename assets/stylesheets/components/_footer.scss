@@ -1,8 +1,59 @@
 .footer {
-  background: red;
   padding: $spacing * 7 0;
+  position: relative;
+  height: 312px;
 
   .container {
     padding: 0 $spacing * 4.4;
+  }
+
+  .footer-title {
+    font-size: 1.5em;
+    line-height: 2.05;
+    color: $brand_color;
+  }
+  ul {
+    padding: 0;
+    width: 310px;
+  }
+  li:nth-child(odd) {
+    margin-right: 110px; 
+  }
+  li {
+    list-style: none;
+    width: 100px;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: $spacing * 2;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .group-7 {
+    width: 126px;
+    height: 257px;
+    object-fit: contain;
+    position: absolute;
+    left: -13px;
+  }
+  .group-6 {
+    width: 150px;
+    height: 250px;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+  }
+  .group-8 {
+    width: 490px;
+    height: 85px;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 245px);
   }
 }
