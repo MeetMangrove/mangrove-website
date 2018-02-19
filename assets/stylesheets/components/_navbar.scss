@@ -1,5 +1,5 @@
 .navbar {
-  padding: $spacing * 3;
+  padding: $spacing * 2 $spacing * 3;
   box-shadow: 0 2px 4px 0 rgba(black, 0.05);
   display: flex;
   align-items: center;
@@ -37,13 +37,16 @@
       color: white;
       text-decoration: none;
       display: inline-block;
-      padding: 5px;
+      // padding: 5px;
       margin: -5px;
       border-radius: $radius;
       font-weight: 500;
       transition: .15s ease background;
+      padding: 15px 20px;
 
-      &:hover { background: rgba(black, .05) }
+      &:hover { 
+        background: rgba(black, .05); 
+      }
     }
   }
 
