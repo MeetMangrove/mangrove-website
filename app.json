@@ -2,9 +2,38 @@
   "name": "mangrove-website",
   "description": "Mangrove's inspiring website",
   "keywords": ["mangrove"],
-  "website": "http://meetmangrove.com/",
+  "website": "https://www.mangrove.io",
   "repository": "https://github.com/MeetMangrove/mangrove-website",
   "success_url": "/",
-  "env": {},
-  "addons": []
+  "env": {
+    "SECRET": {
+      "description": "secret key used to protect cookies and login",
+      "generator": "secret"
+    },
+    "SLACK_CLIENT_ID": {
+      "required": true
+    },
+    "SLACK_CLIENT_SECRET": {
+      "required": true
+    },
+    "SLACK_TEAM_IDS": {
+      "description": "comma-separated IDs of Slack teams allowed for login",
+      "required": true
+    },
+    "AIRTABLE_API_KEY": {
+      "required": true
+    },
+    "AIRTABLE_BASE_KEY": {
+      "required": true
+    },
+    "GOOGLE_MAPS_API_KEY": {
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis:hobby-dev",
+      "as": "REDIS"
+    }
+  ]
 }
