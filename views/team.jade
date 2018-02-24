@@ -1,26 +1,26 @@
-extends layout_v2
+extends layout
 
 block content
   .container
-    .pre-headline
-        h1
-          = "What's up Mangrove?"
-        .pre-headline-tagline
-          = "Mangrovers feel happy today ⭐️ "
-          strong
-            = moods.moods
-        .pre-headline-tagline          
-          = "We helped each other "
-          strong
-            = thanks
-          = " times this week 🤗"
-        .pre-headline-tagline          
-          = "The next retreat is in "
-          strong 30 days 
-          = " 🌴"
-        .pre-headline-tagline          
-          strong 4 amazing people
-          = " joined Mangrove this month 🐺"
+    //- .pre-headline
+    //-     h1
+    //-       = "What's up Mangrove?"
+    //-     .pre-headline-tagline
+    //-       = "Mangrovers feel happy today ⭐️ "
+    //-       strong
+    //-         = moods.moods
+    //-     .pre-headline-tagline          
+    //-       = "We helped each other "
+    //-       strong
+    //-         = thanks
+    //-       = " times this week 🤗"
+    //-     .pre-headline-tagline          
+    //-       = "The next retreat is in "
+    //-       strong 30 days 
+    //-       = " 🌴"
+    //-     .pre-headline-tagline          
+    //-       strong 4 amazing people
+    //-       = " joined Mangrove this month 🐺"
     .headline
       h1
         = "A global team"
@@ -30,12 +30,13 @@ block content
     .members
       each member in members
         .member-item-container
+          //- = JSON.stringify(member)
           .member-item
             .member-item-avatar
               .member-item-avatar-image(style="background-image:url("+ member.image + ")")
-                span.member-item-city
-                  i(class="mdi mdi-map-marker")
-                  = member.location
+              span.member-item-city
+                i(class="mdi mdi-map-marker")
+                = member.location
             .member-item-infos
               .member-item-name
                 = member.name
@@ -45,6 +46,9 @@ block content
                 = member.tracks[0]
               .member-item-beta
                 = member.bio
+              .member-item-full
+                = member.bioFull
+
     //- .footer-cta
     //-   div
       //-   h2

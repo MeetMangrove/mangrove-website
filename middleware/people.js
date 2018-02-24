@@ -2,43 +2,51 @@ var airtable = require('./airtable.js')
 
 function getPeople () {
   return new Promise(function (resolve, reject) {
+    var members = [],
+      friends = [],
+      locations = []
 
-    var members   = []
-       ,friends   = []
-       ,locations = [];
+    airtable.members
+      .select({
+        // filterByFormula: "{Status} = 'Cofounder'",
+      })
+      .eachPage(
+        function page (records, fetchNextPage) {
+          records.forEach(function (record) {
+            var status = record.get('Status')
+            if (
+              status === 'Builder' ||
+              status === 'Resident' ||
+              status === 'Veteran'
+            ) {
+              members.push(record)
+            } else if (status === 'Friend' || status === 'Guest') {
+              friends.push(record)
+            }
+            locations.push(record.get('Current Location'))
+          })
+          fetchNextPage()
+        },
+        function done (err) {
+          if (err) {
+            reject(err)
+            return
+          }
 
-    airtable.members.select({
-      // filterByFormula: "{Status} = 'Cofounder'",
-    }).eachPage(function page (records, fetchNextPage) {
-      records.forEach(function (record) {
-        var status = record.get('Status')
-        if (status === 'Builder' || status === 'Resident' || status === 'Veteran') {
-          members.push(record)
-        } else if (status === 'Friend' || status === 'Guest') {
-          friends.push(record)
+          members = sortMembers(members)
+          members = formatMembers(members)
+          friends = formatFriends(friends)
+
+          console.log('=> Retrieved ' + members.length + ' members.')
+          console.log('=> Retrieved ' + friends.length + ' friends.')
+
+          resolve({
+            members: members,
+            friends: friends,
+            locations: locations
+          })
         }
-        locations.push(record.get('Current Location'))
-      })
-      fetchNextPage()
-    }, function done (err) {
-      if (err) {
-        reject(err)
-        return
-      }
-
-      members = sortMembers(members)
-      members = formatMembers(members)
-      friends = formatFriends(friends)
-
-      console.log('=> Retrieved ' + members.length + ' members.')
-      console.log('=> Retrieved ' + friends.length + ' friends.')
-
-      resolve({
-        members: members,
-        friends: friends,
-        locations: locations
-      })
-    })
+      )
   })
 }
 
@@ -47,8 +55,14 @@ function formatFriends (records) {
 
   for (var i = 0; i < records.length; i++) {
     var record = records[i]
-    var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
-    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
+    var tw =
+      record.get('Twitter') && record.get('Twitter').length
+        ? record.get('Twitter')
+        : null
+    var img =
+      record.get('Profile Picture') && record.get('Profile Picture').length
+        ? record.get('Profile Picture')[0].url
+        : null
     var person = {
       name: record.get('Name'),
       twitter: tw,
@@ -70,8 +84,14 @@ function formatMembers (records) {
   for (var i = 0; i < records.length; i++) {
     var record = records[i]
 
-    var tw = record.get('Twitter') && record.get('Twitter').length ? record.get('Twitter') : null
-    var img = record.get('Profile Picture') && record.get('Profile Picture').length ? record.get('Profile Picture')[0].url : null
+    var tw =
+      record.get('Twitter') && record.get('Twitter').length
+        ? record.get('Twitter')
+        : null
+    var img =
+      record.get('Profile Picture') && record.get('Profile Picture').length
+        ? record.get('Profile Picture')[0].url
+        : null
     var dateOfArrival = new Date(record.get('Cofounder Since'))
     var location = record.get('Location')
 
@@ -81,11 +101,12 @@ function formatMembers (records) {
       image: img,
       dateOfArrival: formatArrivalDate(dateOfArrival),
       tracks: record.get('Tracks') ? record.get('Tracks') : [],
-      fire: (i < 3),
-      newbie: (dateOfArrival > threeMonthAgo),
+      fire: i < 3,
+      newbie: dateOfArrival > threeMonthAgo,
       skills: record.get('Skills'),
       bio: truncateText(record.get('Bio'), 100),
-      location: (location ? location.replace(/,.*/, '') : null),
+      bioFull: record.get('Bio'),
+      location: location ? location.replace(/,.*/, '') : null
     }
 
     members.push(person)
@@ -94,22 +115,21 @@ function formatMembers (records) {
   return members
 }
 
-
 function truncateText (str, length, ending) {
-  if(str) {
+  if (str) {
     if (length == null) {
-      length = 100;
+      length = 100
     }
     if (ending == null) {
-      ending = '...';
+      ending = '...'
     }
     if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
+      return str.substring(0, length - ending.length) + ending
     } else {
-      return str;
+      return str
     }
   }
-};
+}
 
 function sortMembers (members) {
   members.sort(function (a, b) {
@@ -120,8 +140,20 @@ function sortMembers (members) {
 }
 
 function formatArrivalDate (date) {
-  var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December']
+  var monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ]
 
   return 'since ' + monthNames[date.getMonth()] + ' ' + date.getFullYear()
 }

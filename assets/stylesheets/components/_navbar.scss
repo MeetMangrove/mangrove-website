@@ -3,62 +3,47 @@
   box-shadow: 0 2px 4px 0 rgba(black, 0.05);
   display: flex;
   align-items: center;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
-
+  color: $text_color;
+  z-index: 10;
   @media (max-width: 700px) {
     display: block;
-
     li a {
       margin-bottom: $spacing;
     }
   }
-
-  .logo { svg path { fill: white; } }
-
+  .logo {
+    svg path {
+      fill: $brand_color;
+    }
+  }
   &-menu {
     margin: 0;
     margin-left: auto;
     padding: 0;
-
     @media (max-width: 700px) {
       margin-top: $spacing * 2;
       margin-left: -($spacing * 3);
     }
-
     li {
       display: inline-block;
       margin: 0;
       margin-left: $spacing * 3;
     }
-
     a {
-      color: white;
+      color: $text_color;
       text-decoration: none;
-      display: inline-block;
-      // padding: 5px;
+      display: inline-block; // padding: 5px;
       margin: -5px;
       border-radius: $radius;
       font-weight: 500;
-      transition: .15s ease background;
+      transition: 0.15s ease background;
       padding: 15px 20px;
-
-      &:hover { 
-        background: rgba(black, .05); 
+      &:hover {
+        background: rgba(black, 0.05);
       }
-    }
-  }
-
-  // team page variation
-  &.team {
-    position: relative;
-    .logo {
-      svg path { fill: $brand_color }
-    }
-
-    .navbar-menu a {
-      color: $text_color;
     }
   }
 }
