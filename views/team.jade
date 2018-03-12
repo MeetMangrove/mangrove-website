@@ -35,15 +35,28 @@ block content
             .member-item-avatar
               .member-item-avatar-image(style="background-image:url("+ member.image + ")")
               span.member-item-city
-                i(class="mdi mdi-map-marker")
+                img(src="images/location.svg" class="icon-location")
                 = member.location
             .member-item-infos
               .member-item-name
                 = member.name
-              //- .member-item-date
-              //-   = member.dateOfArrival
               .member-item-tracks
-                = member.tracks[0]
+                if member.tracks
+                  for track in member.tracks
+                    = track + ' ' 
+                    if track == 'Connector'
+                      span 🔗
+                    if track == 'Greeter'
+                      span 🤗
+                    if track == 'Hunter'
+                      span 🐺
+                    if track == 'Catalyst'
+                      span ☀️
+                    if track == 'Retreat Planner'
+                      span 🌴
+                    = ' '
+              .member-item-date
+                = member.dateOfArrival
               .member-item-beta
                 = member.bio
               .member-item-full
