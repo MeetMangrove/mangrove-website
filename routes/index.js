@@ -1,26 +1,26 @@
-var express = require('express');
-var wording = require('../middleware/wording.js');
-var people = require('../middleware/people.js');
-var moods = require('../middleware/moods.js');
-var thanks = require('../middleware/thanks.js');
-var updateLocations = require('../tasks/updateLocations.js').updateLocations;
-const { REDIS_URL } = require('../lib/constants');
-var redis = require('redis').createClient(REDIS_URL);
+var express = require("express");
+var wording = require("../middleware/wording.js");
+var people = require("../middleware/people.js");
+var moods = require("../middleware/moods.js");
+var thanks = require("../middleware/thanks.js");
+var updateLocations = require("../tasks/updateLocations.js").updateLocations;
+const { REDIS_URL } = require("../lib/constants");
+var redis = require("redis").createClient(REDIS_URL);
 
-import { formatAddress } from '../middleware/map';
+import { formatAddress } from "../middleware/map";
 
 var router = express.Router();
 
 router.use(wording);
 
-router.get('/:name?', function(req, res, next) {
+router.get("/:name?", function(req, res, next) {
   var name = req.params.name;
-  name = name || 'index';
+  name = name || "index";
 
-  if (name === 'team') {
+  if (name === "team") {
     if (req.session.user) {
       // private Team page, for members only
-      return res.render('team_private', req.wording);
+      return res.render("team_private", req.wording);
     }
 
     // Chain promise
@@ -40,7 +40,7 @@ router.get('/:name?', function(req, res, next) {
       result.moods = moods;
       result.thanks = thanks.thanks.length;
 
-      redis.get('team.locations', function(err, reply) {
+      redis.get("team.locations", function(err, reply) {
         if (reply) {
           result.coords = JSON.parse(reply);
         } else {
@@ -55,7 +55,7 @@ router.get('/:name?', function(req, res, next) {
     });
   } else {
     // Just render using wording
-    res.render(name.replace(/\W/g, '_'), req.wording);
+    res.render(name.replace(/\W/g, "_"), req.wording);
   }
 });
 
