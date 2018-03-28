@@ -1,0 +1,102 @@
+.lifestyle {
+  h1 {
+    font-size: 50px;
+    line-height: 1.08;
+    letter-spacing: 1.3px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    opacity: 0.5;
+    font-size: 19px;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    max-width: 390px;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  img {
+    width: 310px;
+  }
+  .flr {
+    float: right;
+  }
+  .tal {
+    text-align: right;
+  }
+  .row {
+    display: flex;
+    margin-bottom: 30px;
+    .col {
+      flex: 1;
+    }
+    h2 {
+      font-size: 26px;
+      line-height: 1.31;
+      margin: 0;
+      margin-bottom: 12px;
+      letter-spacing: normal;
+      text-align: left;
+      color: #f73b59;
+    }
+    p {
+      font-size: 14px;
+      max-width: 320px;
+      line-height: 1.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  button {
+    background-color: white;
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09);
+    border: solid 1px #d3d3d3;
+    padding: 8px 40px;
+    text-align: center;
+    a {
+      color: inherit;
+      font-size: 15px;
+      opacity: 0.6;
+      text-decoration: none;
+    }
+  }
+  .mgt90 {
+    margin-top: 90px;
+  }
+  .mgr120 {
+    margin-right: 120px;
+  }
+  @media (max-width: 820px) {
+    .flr {
+      float: inherit;
+    }
+    .row {
+      display: block;
+      text-align: center;
+
+      h2,
+      p {
+        margin: 0 auto;
+        text-align: center;
+      }
+      img {
+        margin: 0 !important;
+      }
+      .mgt90,
+      .mgr120 {
+        margin: 0;
+      }
+    }
+    .col {
+      width: 100%;
+      margin: 30px 0;
+    }
+  }
+}

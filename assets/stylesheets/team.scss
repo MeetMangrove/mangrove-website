@@ -5,8 +5,8 @@ $radius: 3px;
 $break-tablet: 768px;
 @import url("https://rsms.me/inter/inter-ui.css");
 body {
-	font-family: "Inter UI", sans-serif;
-	-webkit-font-smoothing: antialiased;
+  font-family: "Inter UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 @import "./components/navbar";
@@ -20,10 +20,12 @@ body {
 @import "./components/mangrove_map";
 @import "./components/homepage";
 @import "./components/mutual_help";
+@import "./components/lifestyle";
+@import "./components/about";
 
 #map-container {
-	height: 300px;
-	@media only screen and (min-width: 35em) {
-		height: 500px;
-	}
+  height: 300px;
+  @media only screen and (min-width: 35em) {
+    height: 500px;
+  }
 }
