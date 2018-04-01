@@ -1,8 +1,30 @@
-/* map with members' locations */
+$spacing: 8px;
+$brand_color: #f73b59;
+$text_color: rgba(black, 0.8);
+$radius: 3px;
+$break-tablet: 768px;
+@import url("https://rsms.me/inter/inter-ui.css");
+body {
+  font-family: "Inter UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@import "./components/navbar";
+@import "./components/member_item";
+@import "./components/container";
+@import "./components/pre-headline";
+@import "./components/headline";
+@import "./components/footer_cta";
+@import "./components/footer";
+@import "./components/button";
+@import "./components/mangrove_map";
+@import "./components/homepage";
+@import "./components/mutual_help";
+@import "./components/lifestyle";
+@import "./components/about";
 
 #map-container {
   height: 300px;
-
   @media only screen and (min-width: 35em) {
     height: 500px;
   }

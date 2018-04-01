@@ -1,6 +1,5 @@
-body {
-  font: 16px "Proxima Nova", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.02em;
+* {
+  box-sizing: border-box;
 }
 
 /*
@@ -17,7 +16,8 @@ Header
   position: relative;
   height: auto;
   top: 0;
-  padding: 50px 7px;
+  display: flex;
+  flex-flow: column;
 }
 
 h1 {
@@ -50,7 +50,7 @@ h1 {
 }
 
 .catchphrase {
-  padding-top: 20px;
+  margin: auto;
 }
 
 .bottom-arrow {
@@ -73,50 +73,7 @@ h1 {
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Menu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
-.menu {
-  position: relative;
-  top: 0;
-  text-align: center;
-  width: 100%;
-  line-height: 42px;
-}
-
-.menu ul {
-  padding: 0; 
-  margin: 0;
-  list-style: none;
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
-
-.menu li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-.menu .logo {
-  text-align: center;
-}
-
-.menu .logo img{
-  width: 66%;
-}
-
-
-.menu a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Head
@@ -145,11 +102,11 @@ Head
 Footer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-.footer {
+/* .footer {
   padding: 5em 0;
   text-align: center;
   background-color: #2C3E50;
-}
+} */
 
 .footer-legend {
   margin-bottom: 4px;
@@ -183,148 +140,114 @@ Footer
     top: 1px;
   }
 
-@media only screen and (min-width: 64em) {
 
-  /*
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Header
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  */
 
-  .header {
-    /* Chrome 10-25, Safari 5.1-6 */
-    text-align: left;
-    top: 0;
-    height: 100vh;
-    padding: 0;
-  }
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Header
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
-  .header.small {
-    background: #ee3b52;
-    height: 70vh;
-    padding: 50px 7px;
-  }
-
-  h1 {
-    font-size: 60px;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #fff;
-    margin: 0;
-    line-height: 100vh;
-    position: inherit;
-    width: auto;
-    text-align: center;
-  }
-  
-  .header.small .catchphrase {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-  }
-
-  .header.small h1 {
-    font-size: 45px;
-    line-height: inherit;
-    top: 0;
-    width: 100%;
-    position: relative;
-  }
-
-  .bottom-arrow {
-    display: block;
-  }
-
-  /*
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Menu
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  */
-
-  .menu {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    line-height: 150px;
-  }
-
-  .menu .logo {
-    float: left;
-    margin-left: 100px;
-    text-align: left;
-    margin-top: 0;
-  }
-
-    .menu .logo img {
-      vertical-align: middle;
-      width: 39%;
-      padding-bottom: 0%;
-    }
-
-  .menu ul {
-    position: absolute;
-    right: 50px;
-    text-align: left;;
-    width: auto;
-    margin-top: auto;
-  }
-
-  .menu li {
-    float: left;
-    margin-right: 50px;
-    text-decoration: none;
-  }
-
-  /*
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Head
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  */
-
-  .head {
-    padding: 3em 0;
-    font-size: 1.08em;
-  }
-
-  .head .description {
-    max-width: 610px;
-    margin: auto;
-  }
-
-  /*
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Footer
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  */
-
-  .footer-legend {
-    font-size: 21px;
-  }
-
-  .footer-link {
-    font-size: 28px;
-  }
-
-  .footer-logos {
-    margin-top: 35px;
-    color: #fff;
-  }
-
-  .footer-logos a {
-    color: #fff;
-    display: inline-block;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-
-  .footer-logos i {
-    font-size: 40px;
-  }
-
-  .footer-logos .snapchat img {
-    width: 35px;
-    position: relative;
-    top: 1px;
-  }
+.header {
+  /* Chrome 10-25, Safari 5.1-6 */
+  text-align: left;
+  top: 0;
+  height: 100vh;
+  min-height: 300px;
+  padding: 0;
 }
+
+.header.small {
+  background: #F73B59;
+  height: 70vh;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+  position: inherit;
+  width: auto;
+  text-align: center;
+  letter-spacing: -2px;
+}
+
+.header.small .catchphrase {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.header.small h1 {
+  font-size: 45px;
+  line-height: inherit;
+  top: 0;
+  width: 100%;
+  position: relative;
+}
+
+.bottom-arrow {
+  display: block;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Menu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Head
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.head {
+  padding: 3em 0;
+  font-size: 1.08em;
+}
+
+.head .description {
+  max-width: 610px;
+  margin: auto;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Footer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.footer-legend {
+  font-size: 21px;
+}
+
+.footer-link {
+  font-size: 28px;
+}
+
+.footer-logos {
+  margin-top: 35px;
+  color: #fff;
+}
+
+.footer-logos a {
+  color: #fff;
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.footer-logos i {
+  font-size: 40px;
+}
+
+.footer-logos .snapchat img {
+  width: 35px;
+  position: relative;
+  top: 1px;
+}
+

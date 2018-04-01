@@ -5,6 +5,7 @@
 logs
 *.log
 npm-debug.log*
+.DS_Store
 
 # Runtime data
 pids
@@ -47,3 +48,6 @@ yarn.lock
 
 # temp files
 tmp
+
+# Redis dump
+*.rdb

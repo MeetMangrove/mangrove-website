@@ -1,0 +1,12 @@
+{
+	"extends": "standard",
+	"plugins": ["standard"],
+	"rules": {
+		"semi": 0,
+		"quotes": [1, "double"],
+		"space-before-function-paren": 0
+	},
+	"env": {
+		"node": true
+	}
+}

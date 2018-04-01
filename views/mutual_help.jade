@@ -1,12 +1,20 @@
 extends layout
 
 block content
-  each section,key in sections
-    section(class="lifestyle" style="background-image:url(images/p#{key}.png)")
-      .content
-        .text
-          .textwlinks
-            h2=section.title
-            p!=section.text
-      div(style="clear:both;")
-  include newsletter.jade
+	.mutual-help
+		.mutual-head
+			h1 People help people
+			h2 Mangrove members help each other regularly on a variety of projects.
+
+		.wrap
+			.wrap-text
+				h3 Improve Mangrove
+				p Mangrove members collaborate on improving the community so that it can better fulfill its mission to help its members grow. This takes many forms, such as planning gatherings, building tools that improve our lives, or even creating inspiring content to attract people who share our values.
+			.wrap-img
+				img(src="images/pelican-2.png")
+		.wrap.wrap-grey
+			.wrap-img
+				img(src="images/mutual-2.png")
+			.wrap-text
+				h3 Explore Personal Projects
+				p By focusing only on helping its members grow, Mangrove fosters the birth of successful personal projects. So far, those have taken many forms, such as a popular Youtube channel about French rap, a podcast with inspiring French entrepreneurs, or even a social impact venture.

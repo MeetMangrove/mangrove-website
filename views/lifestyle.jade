@@ -1,21 +1,32 @@
 extends layout
 
 block content
-  .lifestyle#head
-    each section,key in sections
-      section
-        .content
-          if section.title=='video'
-            .videocontent
-                .videoWrapper
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/3OVhSbP7KZI" frameborder="0" allowfullscreen></iframe>
-                .videotext
-                  p Some insights from our retreat in Portugal (June 2016)
-          else
-            .text
-                h2=section.title
-                p=section.text
-            .image
-              img(src="images/lifestyle_#{key}.png")
-              .detail=section.detail
-        div(style="clear:both;")
+  .lifestyle
+    h1 Mangrove is a lifestyle
+    h2 We interact in real life and online on a daily basis. This is core to our personal growth.
+    .row
+      .col   
+        img.flr(src="images/lifestyle-1.jpg" style="margin-right: -10px;")
+      .col      
+    .row
+      .col
+        img.flr(src="images/lifestyle-2.jpg" style="margin-right: 60px;")
+      .col
+        h2 Physical interactions
+        p Mangrove members interact in real life through local hubs (Paris, Berlin, San Francisco), retreats all over the world, and learning bootcamps.
+    .row
+      .col
+        .flr.mgt90
+          h2 Online interactions
+          p Our community is global, and interactions continue online! Mangrove has succeeded in building a strong sense of community through daily conversations, pairing systems, and interaction tools.
+      .col
+        img(src="images/lifestyle-3.jpg" style="margin-left: 50px;")
+    .row
+      .col
+        .flr.mgr120
+          button
+            a(href="/mutual-help") Work differently
+      .col
+         img(src="images/lifestyle-4.jpg")
+
+
