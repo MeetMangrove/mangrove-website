@@ -13,6 +13,6 @@ $(document).ready(function () {
   })
 
   $('.hellobar-clear').click(function () {
-    $('.banner').fadeOut('fast')
+    $('.hellobar').fadeOut('fast')
   })
 })
