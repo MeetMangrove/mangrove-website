@@ -6,6 +6,7 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
 var cookieSession = require('cookie-session')
+var sassMiddleware = require('node-sass-middleware')
 var passport = require('./lib/passport')
 var constants = require('./lib/constants')
 
@@ -27,7 +28,24 @@ app.use(cookieSession({
   keys: [constants.SECRET],
   maxAge: 30 * 24 * 3600 * 1000 // 30 days
 }))
-app.use(express.static(path.join(__dirname, 'public')))
+// SASS assets
+app.use(sassMiddleware({
+  src: constants.ASSETS_DIR,
+  dest: constants.TEMP_DIR,
+  debug: (app.get('env') === 'development'),
+  outputStyle: (app.get('env') === 'development' ? 'extended' : 'compressed'),
+  prefix: '/', // prefix for asset URLs <link rel=":prefix/asset.css">
+  log: function (severity, key, value) {
+    console.log('%s node-sass-middleware %s : %s', severity, key, value);
+  },
+  error: function (err) {
+    console.log('ERROR node-sass-middleware', err)
+  }
+}))
+// serve compiled assets from the temp directory
+app.use(express.static(constants.TEMP_DIR))
+// serve public files from the public directory
+app.use(express.static(constants.PUBLIC_DIR))
 
 // login with slack
 app.use(passport.initialize())

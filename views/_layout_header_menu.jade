@@ -1,7 +1,8 @@
-.menu
+.navbar(class=name)
   .logo
-    a(href='/'): img(src="images/logo.png")
-  ul
+    a(href='/')
+      include ./svg/logo.jade
+  ul.navbar-menu
     li: a(href='/lifestyle') Lifestyle
     li: a(href='/mutual-help') Mutual Help
     li: a(href='/team') Team

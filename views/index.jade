@@ -1,12 +1,55 @@
 extends layout
 
 block content
-  each section,key in sections
-    section(class="lifestyle" style="background-image:url(images/#{key}.png)")
-      .content
-        .text
-          h2=section.title
-          p=section.text
-          a.button(href=section.cta_link)=section.cta
-      div(style="clear:both;")
-  include newsletter.jade
+  //- each section,key in sections
+  //-   section(class="lifestyle" style="background-image:url(images/#{key}.png)")
+  //-     .content
+  //-       .text
+  //-         h2=section.title
+  //-         p=section.text
+  //-         a(href=section.cta_link)=section.cta
+  //-     div(style="clear:both;")
+  //- include newsletter.jade
+  .container-homepage
+    div
+      img(src="images/All.png" class="landing-logo")
+    h1 Growing Together
+    .intro-p 
+      | Mangrove is a global team of people who share the same values and collaborate towards personal growth. <br><br> Start a new life. 
+      a(href="#" class="landing-cta") Join us now
+
+    ul
+      li
+        .list-wrapper
+          div
+            img(src="images/home-1.png")
+          .list-container
+            h2 We share the same values
+            p Benevolence, openness, and freedom. These values are the roots of our community. They feed our culture, our projects, and our structure.
+            .button-container
+              button
+                a(href="#lifestyle") Lifestyle
+      li
+        .list-wrapper
+          div
+            img(src="images/home-2.png")
+          .list-container
+            h2 We interact daily
+            p Mangrove members interact daily, in real life or online, building the perfect environment to foster personal growth.
+      li
+        .list-wrapper
+          div
+            img(src="images/home-3.png")
+          .list-container
+            h2 We help each other
+            p Mangrove members improve their lives through gatherings, tools, and personal projects.
+            .button-container
+              button
+                a(href="#mutual-help") Work differently
+      li
+        .list-wrapper
+          div
+            img(src="images/home-4.png")
+          .list-container
+            h2 We keep expanding
+            p Mangrove is a group of people with common values and complementary skillset. We’re always on the lookout for new people who share our values.             

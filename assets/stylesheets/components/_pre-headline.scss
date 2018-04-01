@@ -1,0 +1,19 @@
+.pre-headline {
+  padding: $spacing * 6 0;
+  h1 {
+    color: $text_color;
+    font-weight: 300;
+    font-size: 3.1em;
+  }
+
+  &-tagline {
+    text-align: center;
+    margin-top: $spacing * 3;
+    opacity: .8;
+    font-size: 1.1em;
+  }
+  &-tagline strong {
+    color: $brand_color;
+    font-weight: normal; 
+  }
+}

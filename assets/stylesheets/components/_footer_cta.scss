@@ -1,0 +1,26 @@
+.footer-cta {
+  padding: $spacing * 6 0;
+  display: flex;
+  align-items: center;
+
+  @media(max-width: 820px) {
+    display: block;
+    text-align: center;
+    .button {
+      margin-top: $spacing * 3;
+    }
+  }
+
+  &>div {margin-right: auto;} // push button to the right
+
+  h2 {
+    font-weight: 300;
+    font-size: 2.2em;
+  }
+
+  .tagline {
+    opacity: .5;
+    font-size: 1.4em;
+    margin-top: $spacing;
+  }
+}

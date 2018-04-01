@@ -1,0 +1,73 @@
+.mutual-help {
+	.mutual-head {
+		text-align: center;
+		h1 {
+			font-size: 50px;
+			margin-bottom: 20px;
+			color: #000;
+			opacity: 0.8;
+			margin-top: 100px;
+			letter-spacing: 1.3px;
+		}
+		h2 {
+			opacity: 0.5;
+			max-width: 390px;
+			margin: 0 auto;
+			margin-bottom: 40px;
+			font-size: 19px;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: 1.47;
+			letter-spacing: normal;
+			color: rgba(0, 0, 0, 0.8);
+		}
+	}
+	.wrap {
+		display: flex;
+		justify-content: space-around;
+		padding: 80px 100px;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		@media screen and (max-width: $break-tablet) {
+			flex-direction: column;
+		}
+
+		&.wrap-grey {
+			background-color: #f7f7f7;
+
+			img {
+				margin-bottom: -20px;
+			}
+		}
+
+		.wrap-text {
+			max-width: 360px;
+			margin: 40px;
+		}
+		h3 {
+			font-size: 26px;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: 1.31;
+			letter-spacing: normal;
+			text-align: left;
+			color: #f73b59;
+		}
+		p {
+			font-size: 14px;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: 1.29;
+			letter-spacing: normal;
+			text-align: left;
+			color: rgba(0, 0, 0, 0.8);
+		}
+	}
+}

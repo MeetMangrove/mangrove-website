@@ -1,0 +1,81 @@
+doctype html
+html.no-js(lang="")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    title= title
+    meta(name="description" content="Mangrove develops a new way of working, focused on collaboration and personal fulfillment. We are a global team of passionate tech freelancers and entrepreneurs sharing the same values.")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    meta(property="og:url" content="http://www.mangrove.io")
+    meta(property="og:type" content="website")
+    meta(property="og:title" content="From Work To Life")
+    meta(property="og:description" content="Mangrove develops a new way of working, focused on collaboration and personal fulfillment. We are a global team of passionate tech freelancers and entrepreneurs sharing the same values. Everyday, we learn from each other, build projects together and share unique experiences across the world.")
+    meta(property="og:image" content="images/mangrove.png")
+
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:site" content="@meetmangrove")
+    meta(name="twitter:title" content="Mangrove")
+    meta(name="twitter:description" content="A new way of working is possible. Meet #Mangrove :point_right: www.mangrove.io")
+    meta(name="twitter:creator" content="@meetmangrove")
+    meta(name="twitter:image:src" content="images/mangrove.png")
+
+    // Place favicon.ico in the root directory
+
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/global.css')
+    link(rel='stylesheet', href='/stylesheets/home.css')
+    link(rel='stylesheet', href='/stylesheets/lifestyle.css')
+    link(rel='stylesheet', href='/stylesheets/newsletter.css')
+    link(rel='stylesheet', href='/stylesheets/team.css')
+    link(rel='stylesheet', href='/stylesheets/projects.css')
+    link(rel="stylesheet" href="https://cssgram-cssgram.netdna-ssl.com/cssgram.min.css")
+    link(href="/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css")
+
+    script(src="//use.fontawesome.com/6035d6a879.js")
+    script(src='scripts/modernizr-2.8.3.min.js')
+    script(src="//my.hellobar.com/209e567982fe4fed8365991d34b55d5f0f6c37df.js")
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js", integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin="anonymous")
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    body
+        // [if lt IE 8]
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        // [endif]
+
+        include _layout_header_menu
+
+        block content
+
+        .footer
+          img(src="images/group-7.png" srcset="images/group-7@2x.png 2x, images/group-7@3x.png 3x" class="group-7")
+          img(src="images/group-8.png" srcset="images/group-8@2x.png 2x, images/group-8@3x.png 3x" class="group-8")
+          img(src="images/group-6.png" srcset="images/group-6@2x.png 2x, images/group-6@3x.png 3x" class="group-6")
+          img(src="images/bitmap.png" srcset="images/bitmap@2x.png 2x, images/bitmap@3x.png 3x" class="bitmap")
+          .container
+            .footer-title Mangrove
+            ul
+              li 
+                a(href="/lifestyle") Lifestyle
+              li
+                a(href="/playbook") Playbook
+              li
+                a(href="/mutual-help") Mutual Help
+              li
+                a(href="/join-us") Join Us
+              li
+                a(href="/team") Team
+              li
+                a(href="/contact") Contact Us
+              li
+                a(href="/about") About                
+        script(src="scripts/jquery.scrollTo.min.js")
+        script(src="scripts/main.js")
+
+        script.
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-87631128-1', 'auto');ga('send', 'pageview');
+
