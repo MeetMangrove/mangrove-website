@@ -7,5 +7,6 @@ module.exports = {
   members: base('Members'),
   moods: base('Moods'),
   thanks: base('Thanks'),
-  retreats: base('Retreats')
+  retreats: base('Retreats'),
+  participants: base('Retreat Participants')
 }

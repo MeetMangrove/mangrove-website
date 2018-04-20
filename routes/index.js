@@ -3,6 +3,7 @@ var people = require("../middleware/people.js");
 var moods = require("../middleware/moods.js");
 var thanks = require("../middleware/thanks.js");
 const retreats = require("../middleware/retreats.js");
+const participants = require("../middleware/participants.js");
 var updateLocations = require("../tasks/updateLocations.js").updateLocations;
 const { REDIS_URL } = require("../lib/constants");
 var redis = require("redis").createClient(REDIS_URL);
@@ -54,11 +55,21 @@ router.get("/:name?", function(req, res, next) {
         res.render(name, { ...result, title });
       });
     });
-
   } else if (name === "retreats") {
     // Chain promise
-    retreats.get().then(function (retreats) {
-      res.render(name, { ...retreats, title });
+    Promise.all([retreats.get(), participants.get()]).then(function ([retreats, participants]) {
+      retreats.forEach((retreat) => {
+        retreat.participants = [];
+        participants.forEach((participant) => {
+          if (participant['Retreat Id'][0] === retreat.id) {
+            retreat.participants.push({
+              image: participant['Participant Image'][0].url,
+              twitter: participant['Twitter']
+            });
+          }
+        });
+      });
+      res.render(name, { retreats, title });
     });
   } else {
     // Just render using wording

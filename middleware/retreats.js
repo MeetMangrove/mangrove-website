@@ -15,13 +15,15 @@ function getRetreats() {
             const lastDate = new Date(lastNight[0], lastNight[1], lastNight[2]);
             const previous = lastDate.getTime() < Date.now();
             retreats.push({
+              id: retreat.getId(),
               title: retreat.get('Name'),
               description: retreat.get('Description'),
               image: retreat.get('Pictures')[0].url,
               slug: 'http://retreat.mangrove.io/' + retreat.get('Slug'),
               previous,
               firstDate: retreat.get('First Night'),
-              lastDate: retreat.get('Last Night')
+              lastDate: retreat.get('Last Night'),
+              organizer: retreat.get('Organizer Image')[0].url
             });
           });
           fetchNextPage();
@@ -32,8 +34,6 @@ function getRetreats() {
             return;
           }
 
-          console.log(retreats);
-
           console.log('=> Retrieved ' + retreats.length + ' retreats.');
 
           retreats.sort((a, b) => {
@@ -42,10 +42,30 @@ function getRetreats() {
             return 0;
           });
 
-          resolve({ retreats });
+          resolve(retreats);
         }
       );
   });
+}
+
+function getOrganizer(retreat) {
+  return new Promise(function (resolve, reject) {
+    const organizerId = retreat.get('Organizer')[0]
+    if (typeof organizerId !== 'undefined') {
+      airtable.retreat.find(organizerId, function(err, organizer) {
+        if (err) { reject(err); return }
+        resolve(formatOrganizer(organizer))
+      })
+    }
+  })
+
+  function formatOrganizer(organizer) {
+    return {
+      id: organizer.id,
+      name: organizer.get('Name'),
+      username: organizer.get('Slack Handle')
+    }
+  }
 }
 
 module.exports = {

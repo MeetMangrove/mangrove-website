@@ -18,6 +18,17 @@ block content
                   span Coming soon!
               p
                 = retreat.description
+              .details
+                .details-item
+                  .details-item-label Organizer
+                  .details-item-users
+                    div.day-item-user-avatar(style=`background: url('${retreat.organizer}')`)
+                .details-item
+                  .details-item-label Participants
+                  .details-item-users
+                    each participant in retreat.participants
+                      a(href='https://twitter.com/' + participant.twitter, target='_blank')
+                        div.day-item-user-avatar(style=`background: url('${participant.image}')`)
               if !retreat.previous
                 .button-container
                   button
