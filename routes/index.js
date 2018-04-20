@@ -60,6 +60,7 @@ router.get("/:name?", function(req, res, next) {
     Promise.all([retreats.get(), participants.get()]).then(function ([retreats, participants]) {
       retreats.forEach((retreat) => {
         retreat.participants = [];
+        retreat.organizers = [];
         participants.forEach((participant) => {
           if (participant['Retreat Id'][0] === retreat.id) {
             retreat.participants.push({
@@ -68,6 +69,12 @@ router.get("/:name?", function(req, res, next) {
             });
           }
         });
+        retreat.organizersImages.forEach((image, index) => {
+          retreat.organizers.push({
+            image: image.url,
+            twitter: retreat.organizersTwitter[index]
+          });
+        })
       });
       res.render(name, { retreats, title });
     });

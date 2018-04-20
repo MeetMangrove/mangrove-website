@@ -23,7 +23,8 @@ function getRetreats() {
               previous,
               firstDate: retreat.get('First Night'),
               lastDate: retreat.get('Last Night'),
-              organizer: retreat.get('Organizer Image')[0].url
+              organizersImages: retreat.get('Organizer Image'),
+              organizersTwitter: retreat.get('Organizer Twitter')
             });
           });
           fetchNextPage();

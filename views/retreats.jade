@@ -20,9 +20,11 @@ block content
                 = retreat.description
               .details
                 .details-item
-                  .details-item-label Organizer
+                  .details-item-label Organizers
                   .details-item-users
-                    div.day-item-user-avatar(style=`background: url('${retreat.organizer}')`)
+                    each organizer in retreat.organizers
+                      a(href='https://twitter.com/' + organizer.twitter, target='_blank')
+                        div.day-item-user-avatar(style=`background: url('${organizer.image}')`)
                 .details-item
                   .details-item-label Participants
                   .details-item-users
