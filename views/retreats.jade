@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .retreats
+    h1 Growing through retreats
+    h2 We gather for a week or two around the world creating rewarding interactions.
+
+    ul
+      each retreat in retreats
+        li
+          .list-wrapper
+            div
+              img(src=retreat.image)
+            .list-container
+              h2
+                = retreat.title
+                if !retreat.previous
+                  span Coming soon!
+              p
+                = retreat.description
+              if !retreat.previous
+                .button-container
+                  button
+                    a(href=retreat.slug, target='_blank') Join this retreat

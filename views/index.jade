@@ -1,15 +1,6 @@
 extends layout
 
 block content
-  //- each section,key in sections
-  //-   section(class="lifestyle" style="background-image:url(images/#{key}.png)")
-  //-     .content
-  //-       .text
-  //-         h2=section.title
-  //-         p=section.text
-  //-         a(href=section.cta_link)=section.cta
-  //-     div(style="clear:both;")
-  //- include newsletter.jade
   .container-homepage
     div
       img(src="images/All.png" class="landing-logo")
@@ -18,7 +9,7 @@ block content
       | Mangrove is a community of creators who share the same values and gather around retreats.
     .intro-button
       button
-        a(href="retreat") Join a retreat
+        a(href="retreats") Join a retreat
 
     ul
       li
@@ -37,10 +28,10 @@ block content
             img(src="images/home-2.png")
           .list-container
             h2 We meet during retreats
-            p Mangrove members interact daily, in real life or online, building the perfect environment to foster personal growth.
+            p Mangrove members gather for a week or two around the world to get inspired and work together.
             .button-container
               button
-                a(href="retreat") Join a retreat
+                a(href="retreats") Upcoming retreats
       li
         .list-wrapper
           div

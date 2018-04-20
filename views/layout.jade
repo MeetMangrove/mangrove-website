@@ -37,28 +37,8 @@ html.no-js(lang="")
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     body
-        // [if lt IE 8]
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        // [endif]
-
-        //- if name == 'home'
-        //-   .header
-        //-     include _layout_header_menu
-        //-     .catchphrase
-        //-       h1=catchphrase
-        //-     .bottom-arrow
-        //-       svg#healthcare-arrow(width="24px" height="14px" viewBox="24 29 24 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
-        //-         defs
-        //-         polyline#Path-72-Copy(stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" points="26 31 36 41 46 31")
-        //- else
       
         include _layout_header_menu
-          
-
-        //- if description
-        //-   .head#head
-        //-     .description=description
-        //-     .legend !{cta}
 
         block content
 
@@ -77,13 +57,13 @@ html.no-js(lang="")
               li
                 a(href="/mutual-help") Mutual Help
               li
-                a(href="/join-us") Join Us
+                a(href="/retreats") Retreats
               li
                 a(href="/team") Team
               li
-                a(href="/contact") Contact Us
+                a(href="/about") About
               li
-                a(href="/about") About  
+                a(href='https://medium.com/meetmangrove') Blog
 
         script(src="scripts/jquery.scrollTo.min.js")
         script(src="scripts/main.js")
