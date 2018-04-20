@@ -11,6 +11,14 @@ var router = express.Router();
 router.get("/:name?", function(req, res, next) {
   var name = req.params.name;
   name = name || "index";
+  const title = {
+    index: "Mangrove",
+    lifestyle: "Lifestyle | Mangrove",
+    "mutual-help": "Mutual Help | Mangrove",
+    retreats: "Retreats | Mangrove",
+    team: "Team | Mangrove",
+    about: "About | Mangrove",
+  }[name];
 
   if (name === "team") {
     if (req.session.user) {
@@ -43,18 +51,18 @@ router.get("/:name?", function(req, res, next) {
           updateLocations();
         }
 
-        res.render(name, result);
+        res.render(name, { ...result, title });
       });
     });
 
   } else if (name === "retreats") {
     // Chain promise
     retreats.get().then(function (retreats) {
-      res.render(name, retreats);
+      res.render(name, { ...retreats, title });
     });
   } else {
     // Just render using wording
-    res.render(name.replace(/\W/g, "_"));
+    res.render(name.replace(/\W/g, "_"), { title });
   }
 });
 
