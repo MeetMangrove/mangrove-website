@@ -21,13 +21,14 @@
   }
 
   .block {
-    margin-top: 40px;
     background-color: #f7f7f7;
     padding: 65px;
   }
   .sub-block {
     background-color: #fff;
     padding: 60px 75px;
+    max-width: 816px;
+    margin: auto;
 
     h2 {
       font-size: 30px;

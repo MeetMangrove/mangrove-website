@@ -16,8 +16,7 @@ function getPeople() {
             var status = record.get('Status');
             if (
               status === 'Builder' ||
-              status === 'Resident' ||
-              status === 'Veteran'
+              status === 'Resident'
             ) {
               members.push(record);
             } else if (status === 'Friend' || status === 'Guest') {
