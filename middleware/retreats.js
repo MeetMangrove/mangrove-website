@@ -18,7 +18,7 @@ function getRetreats() {
               title: retreat.get('Name'),
               description: retreat.get('Description'),
               image: retreat.get('Pictures')[0].url,
-              slug: 'https://retreat.mangrove.io/' + retreat.get('Slug'),
+              slug: 'http://retreat.mangrove.io/' + retreat.get('Slug'),
               previous,
               firstDate: retreat.get('First Night'),
               lastDate: retreat.get('Last Night')
