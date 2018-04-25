@@ -19,7 +19,7 @@ function getRetreats() {
               title: retreat.get('Name'),
               description: retreat.get('Description'),
               image: retreat.get('Pictures')[0].url,
-              slug: 'http://retreat.mangrove.io/' + retreat.get('Slug'),
+              link: retreat.get('Link'),
               previous,
               isSummit: retreat.get('Is summit ?'),
               firstDate: retreat.get('First Night'),

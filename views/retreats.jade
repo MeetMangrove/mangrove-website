@@ -33,7 +33,7 @@ block content
                         div.day-item-user-avatar(style=`background: url('${participant.image}')`)
               if !retreat.previous
                 .button-container
-                  a(href=retreat.slug, target='_blank')
+                  a(href=retreat.link, target='_blank')
                     button
                       if retreat.isSummit
                         = "Join this summit"
