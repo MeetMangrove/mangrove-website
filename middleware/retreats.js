@@ -12,7 +12,7 @@ function getRetreats() {
         function page(records, fetchNextPage) {
           records.forEach(function(retreat) {
             const lastNight = retreat.get('Last Night').split('-');
-            const lastDate = new Date(lastNight[0], lastNight[1], lastNight[2]);
+            const lastDate = new Date(lastNight[0], lastNight[1] - 1, lastNight[2]);
             const previous = lastDate.getTime() < Date.now();
             retreats.push({
               id: retreat.getId(),
