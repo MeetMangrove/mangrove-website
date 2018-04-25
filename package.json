@@ -10,6 +10,9 @@
     "updateLocations": "node_modules/babel-cli/bin/babel-node.js tasks/updateLocations.js",
     "web": "nodemon ./bin/www --exec babel-node"
   },
+  "engines": {
+    "npm": "7.7.6"
+  },
   "dependencies": {
     "@google/maps": "^0.4.5",
     "airtable": "^0.4.3",
@@ -31,6 +34,7 @@
     "jade": "~1.11.0",
     "mdi": "^2.1.19",
     "morgan": "~1.7.0",
+    "node-sass": "4.8.3",
     "node-sass-middleware": "^0.11.0",
     "nodemon": "^1.15.0",
     "passport": "^0.4.0",

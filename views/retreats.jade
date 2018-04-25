@@ -34,7 +34,11 @@ block content
               if !retreat.previous
                 .button-container
                   a(href=retreat.slug, target='_blank')
-                    button Join this retreat
+                    button
+                      if retreat.isSummit
+                        = "Join this summit"
+                      else
+                        = "Join this retreat"
     .video-container
       .video-wrapper
         iframe(type='text/html'
