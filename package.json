@@ -10,9 +10,6 @@
     "updateLocations": "node_modules/babel-cli/bin/babel-node.js tasks/updateLocations.js",
     "web": "nodemon ./bin/www --exec babel-node"
   },
-  "engines": {
-    "npm": "7.7.6"
-  },
   "dependencies": {
     "@google/maps": "^0.4.5",
     "airtable": "^0.4.3",
