@@ -62,7 +62,7 @@ router.get("/:name?", function(req, res, next) {
         retreat.participants = [];
         retreat.organizers = [];
         participants.forEach((participant) => {
-          if (participant['Retreat Id'][0] === retreat.id) {
+          if ((participant["Retreat Id"] || [])[0] === retreat.id) {
             retreat.participants.push({
               image: participant['Participant Image'][0].url,
               twitter: participant['Twitter']
